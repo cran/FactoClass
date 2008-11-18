@@ -13,14 +13,14 @@ FactoClass( dfact, metodo, dfilu = NULL , nf = 2, nfcl = 10, k.clust = 3,
             scanFC = TRUE , n.max = 5000 , n.clus = 1000 ,sign = 2.0,
             conso=TRUE , n.indi = 25 )
 
-print.FactoClass(x, ...)
+\method{print}{FactoClass}(x, \dots)
 
 analisis.clus(X,W)
 
 }
 \arguments{
 
- \item{dfact   }{object of class \code{data.frame}, whit the data of active variables.}
+ \item{dfact   }{object of class \code{data.frame}, with the data of active variables.}
  \item{metodo  }{function of ade4 for \code{ade4} factorial analysis, \code{dudi.pca},Principal Component Analysis; 
                  \code{dudi.coa}, Correspondence Analysis; \code{witwit.coa}, Internal Correspondence Analysis;
                  \code{dudi.acm}, Multiple Correspondence Analysis ... }
@@ -85,13 +85,14 @@ multidimensionnelle, Paris.
  Pedro Cesar del Campo \email{pcdelcampon@unal.edu.co},
  Campo Elias Pardo \email{cepardot@unal.edu.co}
        \url{http://www.docentes.unal.edu.co/cepardot},
+ Ivan Diaz \email{ildiazm@unal.edu.co},       
  Mauricio Sadinle \email{msadinleg@unal.edu.co}
 }
 \examples{
 
 # Cluster analysis with Correspondence Analysis
-data(ColorAdjetive)
-FC.col <-FactoClass(ColorAdjetive, dudi.coa)
+data(ColorAdjective)
+FC.col <-FactoClass(ColorAdjective, dudi.coa)
 6
 10
 5

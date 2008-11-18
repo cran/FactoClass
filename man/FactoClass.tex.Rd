@@ -18,10 +18,10 @@
               written in a file.
               }
 
-\usage{FactoClass.tex(FC,job="",append=TRUE, dir = getwd(), p.clust
-= FALSE )
+\usage{
+FactoClass.tex(FC,job="",append=TRUE, dir = getwd(), p.clust = FALSE )
 
-print.FactoClass.tex(x, ...)
+\method{print}{FactoClass.tex}(x, \dots)
 
 latexDF(obj, job="latex" ,tit="" ,lab="" ,append=TRUE ,dec=1,
                      dir = getwd() , to.print = TRUE )
@@ -37,7 +37,7 @@ roundDF(tabla,dec=1)
   \item{p.clust }{the value of this parameter is 'TRUE' or 'FALSE' to print or not the cluster of each element. }
   \item{tabla   }{object of class 'data frame'.}
   \item{dec     }{number of decimal.}
-  \item{x       }{object of class FactoClass.tex.}
+  \item{x       }{object of class \code{FactoClass.tex}}
   \item{obj     }{object of class data.frame.}
   \item{tit     }{title of the table in LaTeX format.}
   \item{lab     }{label of the table in LaTeX format.}

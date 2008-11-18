@@ -1,8 +1,8 @@
 citHeader("To cite FactoClass in publications use this reference:")
 citEntry(entry="Article",
-	title = "Combinación de métodos factoriales y de análisis de conglomerados en R: el paquete FactoClass",
+	title = "Combinacion de metodos factoriales y de analisis de conglomerados en R: el paquete FactoClass",
         author = personList(as.person("C.E. Pardo"),as.person("P.C. DelCampo")),
-	journal = "Revista Colombiana de Estadística",
+	journal = "Revista Colombiana de Estadistica",
   	year = "2007",
 	volume = "30",
 	pages = "231-245",
@@ -11,8 +11,8 @@ url = "www.matematicas.unal.edu.co/revcoles",
         textVersion =
         paste("Pardo, C.E. and DelCampo, P.C. ",
 	       "(2007): ",
-               "Combinación de métodos factoriales y de análisis de conglomerados en R: el paquete FactoClass.",
-               "Revista Colombiana de Estadística. ",
+               "Combinacion de metodos factoriales y de analisis de conglomerados en R: el paquete FactoClass.",
+               "Revista Colombiana de Estadistica. ",
                "30(2): 235-245.",
                sep="")
          )

@@ -14,7 +14,8 @@ C C Real array (K, N) input: the matrix of initial cluster centres
 C output: the matrix of final cluster centres
 C K Integer input: the number of clusters
 C IC1 Integer array (M) output : the cluster each point belongs to
-C IC2 Integer array (M) workspace: this array is used to remember the cluster which
+C IC2 Integer array (M) workspace: this array is used to remember
+C the cluster which
 C each point is most likely to be transferred to at
 C each step
 C NC Integer array (K) output : the number of points in each cluster
@@ -26,7 +27,8 @@ C D Real array (M) workspace :
 C ITRAN Integer array (K) workspace :
 C LIVE Integer array (K) workspace:
 C ITER Integer input: the maximum number of iterations allowed
-C WSS Real array (I<) output: the within-cluster sum of squares of each cluster
+C WSS Real array (I<) output: the within-cluster sum of squares
+C of each cluster
 C
 C Modificacion para FactoClass
 C WH para los pesos
@@ -225,7 +227,7 @@ C
       RETURN
       END
 C
-C     # Cambio de individuos entre cluster.#################################################################
+C     # Cambio de individuos entre cluster.###########################
 C  WH (pesos de individuos) y WHC (peso de clusters, para FactoClass
 C
       SUBROUTINE OPTRA(A, M, N, C, WH, WHC, K, IC1, IC2, NC, AN1, AN2,
@@ -377,8 +379,8 @@ C
       RETURN
       END
 C
-C     ########### FUNCION QTRAN  ########################################################################
-C     ###################################################################################################
+C     ########### FUNCION QTRAN  ######################################
+C     #################################################################
 C
       SUBROUTINE QTRAN(A, M, N, C, WH, WHC, K, IC1, IC2, NC, AN1, AN2,
      *     NCP, D, ITRAN, INDX)

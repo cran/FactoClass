@@ -111,15 +111,15 @@ FactoClass<-function( dfact, metodo, dfilu = NULL , nf = 2, nfcl = 10, k.clust =
 
 #################### ordena la clasificación por el primer componente principal
 
-  critrio.orden     <- order(center1[,1])
-  center1           <- center1[ critrio.orden, ]
-  rownames(center1) <- NULL
-  
-  d1 <- data.frame(prev = cluster1  , id = 1:n)
-  d2 <- data.frame(prev = 1:k.clust , ordenado = critrio.orden)    
-  dd <- merge(d1, d2, all.x = TRUE)
-  dd <- dd[order(dd$id), ]
-  cluster1 <- dd$ordenado
+#  critrio.orden     <- order(center1[,1])
+#  center1           <- center1[ critrio.orden, ]
+#  rownames(center1) <- NULL
+#  
+#  d1 <- data.frame(prev = cluster1  , id = 1:n)
+#  d2 <- data.frame(prev = 1:k.clust , ordenado = critrio.orden)    
+#  dd <- merge(d1, d2, all.x = TRUE)
+#  dd <- dd[order(dd$id), ]
+#  cluster1 <- dd$ordenado
   
   
  
