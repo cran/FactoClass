@@ -1,3 +1,4 @@
+\encoding{latin1}
 \name{plotFactoClass}
 \alias{plotFactoClass}
 \title{Factorial Planes Showing the Classes}
@@ -54,7 +55,7 @@ plotFactoClass(FC , x=1, y=2, rotx=FALSE, roty=FALSE,
   It draws the factorial plane x, y using $co, $li of the object of class \code{FactoClass}.
   If ucal > 0, the function inertia.dudi is used to calculate the quality of representation in the plane. 
 }
-\author{ Campo Elias Pardo \email{cepardot@unal.edu.co}
+\author{ Campo Elías Pardo \email{cepardot@unal.edu.co}
          Pedro Cesar del Campo \email{pcdelcampon@unal.edu.co},
    
        }
