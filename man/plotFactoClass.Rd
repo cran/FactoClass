@@ -7,7 +7,7 @@
  and identifying with colors the cluster to which each element belongs.
 }
 \usage{
-plotFactoClass(FC , x=1, y=2, rotx=FALSE, roty=FALSE,
+plotFactoClass(FC , x=1, y=2,xlim=NULL,ylim=NULL, rotx=FALSE, roty=FALSE,
                 roweti=row.names(dudi$li),
                 coleti=row.names(dudi$co),titre=NULL, axislabel=TRUE,
                 col.row=1:FC$k, col.col="blue", cex=0.8, cex.row=0.8, cex.col=0.8,
@@ -20,6 +20,8 @@ plotFactoClass(FC , x=1, y=2, rotx=FALSE, roty=FALSE,
   \item{FC        }{ object of class \link{FactoClass}. }
   \item{x}{number indentifying the factor to be used as horizontal axis. Default x=1}
   \item{y}{number indentifying the factor to be used as vertical axis. Default y=2}
+  \item{xlim}{the x limits (x1, x2) of the plot}
+  \item{ylim}{the y limits of the plot}  
   \item{rotx      }{ TRUE if you want change the sign of the horizontal coordinates (default FALSE). }
   \item{roty      }{ TRUE if you want change the sign of the vertical coordinates (default FALSE). }
   \item{roweti    }{ selected row points for the graphic. Default all points.}          

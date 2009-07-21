@@ -216,6 +216,8 @@ FactoClass<-function( dfact, metodo, dfilu = NULL , nf = 2, nfcl = 10, k.clust =
 
   if(is.null(base0$numeric)==FALSE){ carac.cont <- cluster.carac( base0$numeric, cluster2 ,"co", sign) }
   if(is.null(base0$factor )==FALSE){ carac.cate <- cluster.carac( base0$factor , cluster2 ,"ca", sign) } 
+# agregado por CEPT mayo 14/09
+  if(is.null(base0$integer)==FALSE){ carac.frec <- cluster.carac( base0$integer , cluster2 ,"fr", sign) }
   
   if(class(DuDi1)[1] == "coa" ){
     if(is.null(dfilu)==FALSE) dfact <- data.frame(dfact,dfilu)

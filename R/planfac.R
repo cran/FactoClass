@@ -24,7 +24,7 @@
 #   cex.global: factor de escala para todas las etiquetas
 #     infaxes: lugar para imprimir información de ejes: "out","in","no" ("out")
 #---------------------------------------------------------------------------------------------
-planfac <- function(dudi,x=1,y=2,rotx=FALSE,roty=FALSE,roweti=row.names(dudi$li),
+planfac <- function(dudi,x=1,y=2,xlim=NULL,ylim=NULL,rotx=FALSE,roty=FALSE,roweti=row.names(dudi$li),
                         coleti=row.names(dudi$co),titre=NULL,axislabel=TRUE,
                         col.row="black",col.col="blue",cex=0.8,cex.row=0.8,cex.col=0.8,
                         all.point=TRUE,Trow=TRUE,Tcol=TRUE,cframe=1.2,ucal=0,
@@ -53,9 +53,9 @@ if (ucal>0){
     eigy <- dudi$eig[y]
     peigy <- round(eigy/sum(dudi$eig)*100,1)
     eigy <- round(eigy,4)                    
-    xlim <- c(min(min(rotx*dudi$li[,x],rotx*min(dudi$co[,x]))),
+    if (is.null(xlim)) xlim <- c(min(min(rotx*dudi$li[,x],rotx*min(dudi$co[,x]))),
                 max(max(rotx*dudi$li[,x],max(rotx*dudi$co[,x]))))
-    ylim <- c(min(min(roty*dudi$li[,y],min(roty*dudi$co[,y]))),
+    if (is.null(ylim)) ylim <- c(min(min(roty*dudi$li[,y],min(roty*dudi$co[,y]))),
                 max(max(roty*dudi$li[,y],max(roty*dudi$co[,y])))) 
     xlim <- xlim*cframe
     ylim <- ylim*cframe      

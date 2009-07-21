@@ -9,7 +9,7 @@
 # cstar es de s.class 0 para no poner radios a los individuos de una clase
 #  infaxes: lugar para imprimir información de ejes: "out","in","no" ("out")
 #---------------------------------------------------------------------------------------------
-plotFactoClass <- function(FC,x=1,y=2,rotx=FALSE,roty=FALSE,roweti=row.names(dudi$li),
+plotFactoClass <- function(FC,x=1,y=2,xlim=NULL,ylim=NULL,rotx=FALSE,roty=FALSE,roweti=row.names(dudi$li),
                         coleti=row.names(dudi$co),titre=NULL,axislabel=TRUE,
                         col.row=1:FC$k,col.col="blue",cex=0.8,cex.row=0.8,cex.col=0.8,
                         all.point=TRUE,Trow=TRUE,Tcol=TRUE,cframe=1.2,ucal=0,
@@ -25,14 +25,14 @@ dudi <- FC$dudi
  names(col.r) <-  names(FC$cluster)
 colpunto <- "black"
 
-planfac(FC$dudi,x=x,y=y,rotx,roty,roweti,
+planfac(FC$dudi,x=x,y=y,xlim=xlim,ylim=ylim,rotx,roty,roweti,
                         coleti,titre,axislabel,
                         col.row=colpunto,col.col,cex,cex.row,cex.col,
                         all.point,Trow,Tcol,cframe,ucal,
                         cex.global,infaxes)
 # grafica de las clases
-     if (rotx) rotx=-1 else rotx=1
-     if (roty) roty=-1 else roty=1
+     if (rotx) rotx<- -1 else rotx<-1
+     if (roty) roty<- -1 else roty<-1
      corli <- cbind(rotx*dudi$li[,x],roty*dudi$li[,y])
      
      s.class(corli,xax=x,yax=y,fac=FC$cluster,wt=dudi$lw,add.plot = TRUE,

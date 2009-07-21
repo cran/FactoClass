@@ -6,16 +6,19 @@
  It plots factorial planes of a correspondence analysis 
 }
 \usage{
-planfac(dudi, x = 1, y = 2, rotx = FALSE, roty = FALSE, roweti=row.names(dudi$li),
-                        coleti=row.names(dudi$co), titre = NULL, axislabel = TRUE, col.row = "black", 
-    col.col = "blue", cex = 0.8, cex.row = 0.8, cex.col = 0.8, all.point = TRUE, Trow = TRUE, 
-    Tcol = TRUE, cframe = 1.2, ucal = 0, cex.global = 1, infaxes = "out")
+planfac(dudi,x=1,y=2,xlim=NULL,ylim=NULL,rotx=FALSE,roty=FALSE,roweti=row.names(dudi$li),
+                        coleti=row.names(dudi$co),titre=NULL,axislabel=TRUE,
+                        col.row="black",col.col="blue",cex=0.8,cex.row=0.8,cex.col=0.8,
+                        all.point=TRUE,Trow=TRUE,Tcol=TRUE,cframe=1.2,ucal=0,
+                cex.global=1,infaxes="out")
 sutil.grid(cgrid,scale=TRUE)    
 }
 \arguments{
-  \item{dudi}{ object of type dudi.coa or dudi.acm}
+  \item{dudi}{ object of type dudi}
   \item{x}{number indentifying the factor to be used as horizontal axis. Default x=1}
   \item{y}{number indentifying the factor to be used as vertical axis. Default y=2}
+  \item{xlim}{the x limits (x1, x2) of the plot}
+  \item{ylim}{the y limits of the plot}  
   \item{rotx}{TRUE if you want change the sign of the horizontal coordinates. Default FALSE }
   \item{roty}{TRUE if you want change the sign of the vertical coordinates. Default FALSE }
   \item{roweti}{selected row points for the graphic. Default all points}
@@ -49,9 +52,10 @@ sutil.grid(cgrid,scale=TRUE)
   If ucal > 0, the function inertia.dudi is used to calculate the quality of representation 
   on the plane 
 }
-\author{ Campo Elias Pardo \email{cepardot@unal.edu.co} 
+\author{Campo Elias Pardo \email{cepardot@unal.edu.co} 
 
-\url{http://www.docentes.unal.edu.co/cepardot}}
+  \url{http://www.docentes.unal.edu.co/cepardot}
+}
 \examples{
 data(ardeche)
 ca <- dudi.coa(ardeche$tab,scannf=FALSE,nf=4)
@@ -59,7 +63,9 @@ ca <- dudi.coa(ardeche$tab,scannf=FALSE,nf=4)
 planfac(ca,ucal=40,all.point=FALSE,titre="SCA of Ardeche, First Factorial Plane")
 dev.new()
 # ade4 style
-planfac(ca,x=3,y=4,ucal=20,all.point=FALSE,infaxes="in",titre="SCA of Ardeche, Plane 3-4")}
+planfac(ca,x=3,y=4,ucal=20,all.point=FALSE,infaxes="in",titre="SCA of
+Ardeche, Plane 3-4")
+}
 \keyword{multivariate}
 \keyword{hplot}
 
