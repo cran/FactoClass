@@ -1,27 +1,27 @@
 #############################################################################################
-##  Funcion de clasificación alrededor de centros moviles k-means                          ##
-##  Tiene en cuenta los pesos de los elemntos a clasificar                                 ##
+##  Funcion de clasificaciÃ³n alrededor de centros moviles k-means                          ##
+##  Tiene en cuenta los pesos de los elementos a clasificar                                 ##
 ##                                                                                         ##
 ##                                                                                         ##
 ## Elaborado por: Pedro Cesar del Campo Neira                                              ##
-##                Campo Elías Pardo                                                        ##
-## Modificado por: Mauricio Sadinle                                                        ##
+##                Campo ElÃ­as Pardo                                                        ##
+## Modificado por: Mauricio SadinleCamilo JosÃ© Torres. Nov. 25 2009.                       ##
 ## Universidad Nacional de Colombia                                                        ##
 ##                                                                                         ##
 ##                                                                                         ##
-## kmeansW  ( x       = un vector o matriz númerica                                        ##
-##            centers = centros de las clasificaciones iniciales. si es un número,         ##
+## kmeansW  ( x       = un vector o matriz nÃºmerica                                        ##
+##            centers = centros de las clasificaciones iniciales. si es un nÃºmero,         ##
 ##                      un conjunto aleatorio de centros es seleccionado para iniciar.     ##
 ##            weight  = peso de los elementos a clasificar, por defecto pesos iguales      ##
-##            iter.max= número maximo de iteracciones a desarrollar en el proceso.         ##
-##            nstart  = si centers es un número, como se seleccionan aleatoriamente los    ##
+##            iter.max= nÃºmero maximo de iteracciones a desarrollar en el proceso.         ##
+##            nstart  = si centers es un nÃºmero, como se seleccionan aleatoriamente los    ##
 ##                      centros iniciales?                                                 ##
 ##           )                                                                             ##
 ##                                                                                         ##
 ##                                                                                         ##
 #############################################################################################
 
-kmeansW <- function(x, centers, weight = rep(1/nrow(x),nrow(x)),
+kmeansW <- function(x, centers, weight = rep(1,nrow(x)),
                   iter.max = 10, nstart = 1){
     x <- as.matrix(x)
     m <- nrow(x)
@@ -53,22 +53,22 @@ kmeansW <- function(x, centers, weight = rep(1/nrow(x),nrow(x)),
         stop("'iter.max' must be positive")
     if (ncol(x) != ncol(centers))
         stop("must have same number of columns in 'x' and 'centers'")
-    Z <-  .Fortran("kmnsw", as.double(x), as.integer(m),
-                as.integer(ncol(x)), centers = as.double(centers), as.double(weight),
-                as.integer(k), c1 = integer(m), integer(m), nc = integer(k),
-                double(k), double(k), integer(k), double(m),
-                integer(k), integer(k), as.integer(iter.max),
-                wss = double(k), ifault = as.integer(0), PACKAGE = "FactoClass")
+    Z <- .C("kmnsw", as.double(x), as.integer(m),
+            as.integer(ncol(x)),
+            centers = as.double(centers), as.double(weight),
+            as.integer(k), c1 = integer(m), nc = integer(k), 
+            as.integer(iter.max), wss = double(k),
+            ifault = as.integer(0), PACKAGE="FactoClass")
     if (nstart >= 2 && !is.null(cn)) {
         best <- sum(Z$wss)
         for (i in 2:nstart) {
             centers <- cn[sample(1:mm, k), , drop = FALSE]
-            ZZ <-  .Fortran("kmnsw", as.double(x), as.integer(m),
-                as.integer(ncol(x)), centers = as.double(centers), as.double(weight),
-                as.integer(k), c1 = integer(m), integer(m), nc = integer(k),
-                double(k), double(k), integer(k), double(m),
-                integer(k), integer(k), as.integer(iter.max),
-                wss = double(k), ifault = as.integer(0), PACKAGE = "FactoClass")
+            ZZ <-  .C("kmnsw", as.double(x), as.integer(m),
+                      as.integer(ncol(x)),
+                      centers = as.double(centers), as.double(weight),
+                      as.integer(k), c1 = integer(m), nc = integer(k), 
+                      as.integer(iter.max), wss = double(k),
+                      ifault = as.integer(0L), PACKAGE="FactoClass")
             if ((z <- sum(ZZ$wss)) < best) {
                 Z <- ZZ
                 best <- z

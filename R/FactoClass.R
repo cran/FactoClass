@@ -201,8 +201,8 @@ FactoClass<-function( dfact, metodo, dfilu = NULL , nf = 2, nfcl = 10, k.clust =
 #if(class(DuDi1)[1] == "coa" ){ base0 <- data.frame(t(t(dfact)/colSums(dfact))) }
 
   if( is.null(dfilu) == FALSE ){ 
-   if(class(dfilu)!="data.frame"){ return(cat("\n\n Illustrative Variables should be 'data.frame'\n")) }
-   if(dim(dfilu)[1]!= n ){ return(cat("\n\n Active and  Illustrative Variables 
+   if(class(dfilu)!="data.frame"){ return(cat("\n\n ERROR: Illustrative Variables should be 'data.frame'\n")) }
+   if(dim(dfilu)[1]!= n ){ return(cat("\n\n ERROR: Active and  Illustrative Variables 
                            should have the same number of elements\n")) }
    base0 <- data.frame(base0,dfilu) 
   }

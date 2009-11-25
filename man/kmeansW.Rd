@@ -5,7 +5,7 @@
 \description{It is a modification of kmeans Hartigan-Wong algorithm to consider the weight of the elements 
 to classify.}
 \usage{
-kmeansW(x, centers, weight = rep(1/nrow(x),nrow(x)),
+kmeansW(x, centers, weight = rep(1,nrow(x)),
         iter.max = 10, nstart = 1)
 }
 \arguments{
@@ -18,20 +18,24 @@ kmeansW(x, centers, weight = rep(1/nrow(x),nrow(x)),
 }
 \details{
  With the 'Hartigan-Wong' algorithm, this function performs the \emph{K-means} clustering
- diminishing inertia intra classes.
- 
+ diminishing inertia intra classes. In this version the Fortran code kmnsW.f was changed by C++ code kmeanw.cc programed by Camilo Jose Torres, modifing C code programed by Burkardt.
 }
 \value{
  object of class \code{FactoClass.tex} with the following characteristics: 
  \item{cluster}{vector indicating the cluster of each element.}
  \item{...    }{}
 }
+\references{  Hartigan, J. A. and Wong, M. A. (1979).
+  A K-means clustering algorithm.
+  \emph{Applied Statistics} \bold{28}, 100--108.
 
+Burkardt, J. (2008).
+ASA136 The K-Means Algorithm.
+ \url{http://people.sc.fsu.edu/~burkardt/cpp_src/asa136/asa136.html}
+}
 \author{
- Pedro Cesar del Campo \email{pcdelcampon@unal.edu.co},
- Campo Elias Pardo \email{cepardot@unal.edu.co},
- Mauricio Sadinle \email{msadinleg@unal.edu.co}
-       \url{http://www.docentes.unal.edu.co/cepardot}}
+Camilo José Torres \email{cjtorresj@unal.edu.co},  Campo Elias Pardo \email{cepardot@unal.edu.co}, Pedro Cesar del Campo \email{pcdelcampon@unal.edu.co}
+}
 
 \examples{
  data(Bogota)
@@ -44,3 +48,4 @@ kmeansW(x, centers, weight = rep(1/nrow(x),nrow(x)),
  
 }
 \keyword{multivariate}
+\keyword{cluster}

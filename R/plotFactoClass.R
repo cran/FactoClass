@@ -25,8 +25,8 @@ dudi <- FC$dudi
  names(col.r) <-  names(FC$cluster)
 colpunto <- "black"
 
-planfac(FC$dudi,x=x,y=y,xlim=xlim,ylim=ylim,rotx,roty,roweti,
-                        coleti,titre,axislabel,
+planfac(dudi,x=x,y=y,xlim=xlim,ylim=ylim,rotx=rotx,roty=roty,roweti=roweti,
+                        coleti=coleti,titre=titre,axislabel,
                         col.row=colpunto,col.col,cex,cex.row,cex.col,
                         all.point,Trow,Tcol,cframe,ucal,
                         cex.global,infaxes)

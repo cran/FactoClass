@@ -29,7 +29,7 @@ plotFactoClass(FC , x=1, y=2,xlim=NULL,ylim=NULL, rotx=FALSE, roty=FALSE,
   \item{titre     }{ graphics title.}                                                  
   \item{axislabel }{ if it is TRUE the axis information is written.}                 
   \item{col.row   }{ color for row points and row labels. Default \code{1:FC$k}.}           
-  \item{col.col   }{ color for row points and row labels. Default "grey55".}            
+  \item{col.col   }{ color for column points and column labels. Default "grey55".}            
   \item{cex       }{ global scale for the labels. Default cex=0.8.}                       
   \item{cex.row   }{ scale for row points and row labels. Default cex.row=0.8. }      
   \item{cex.col   }{ scale for column points and column labels. Default cex.col=0.8. }
