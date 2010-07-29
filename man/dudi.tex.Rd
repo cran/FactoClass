@@ -18,7 +18,6 @@ latex(obj,job="latex",tit="",lab="",append=TRUE,dec=1)
   \item{aidsR}{if it is TRUE the coordinates and aids of
   interpretation of the rows are printed}
   \item{append}{if it is TRUE LaTeX outputs are appended on the file}
-  \item{...}{}
   \item{obj}{object to export to LaTeX}
   \item{tit}{title of the table}
   \item{lab}{label for crossed references of LaTeX table}

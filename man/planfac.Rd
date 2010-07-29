@@ -39,9 +39,8 @@ sutil.grid(cgrid,scale=TRUE)
   \item{infaxes}{place to put the axes information: "out","in","no". Default infaxes="out".
     If infaxes="out" the graphic is similar to \code{FactoMineR} graphics, otherwise the style
     is similar to the one in \code{ade4}, without axes information when infaxes="no"}
-  \item{...}{}
-  \item{cgrid}{}
-  \item{scale}{}  
+  \item{cgrid}{sutil.grid internal}
+  \item{scale}{sutil.grid internal}  
 }
 \details{
   Plot the selected factorial plane. 

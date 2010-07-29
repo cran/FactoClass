@@ -28,7 +28,6 @@ latexDF(obj, job="latex" ,tit="" ,lab="" ,append=TRUE ,dec=1,
 roundDF(tabla,dec=1)
 
     }
-
 \arguments{
   \item{FC      }{object of class \link{FactoClass}. }
   \item{job     }{A name to identify the exit.}
@@ -38,23 +37,20 @@ roundDF(tabla,dec=1)
   \item{tabla   }{object of class 'data frame'.}
   \item{dec     }{number of decimal.}
   \item{x       }{object of class \code{FactoClass.tex}}
+  \item{\dots}{further arguments passed to or from other methods}
   \item{obj     }{object of class data.frame.}
   \item{tit     }{title of the table in LaTeX format.}
   \item{lab     }{label of the table in LaTeX format.}
   \item{to.print}{if it is  \code{'TRUE'} the table is also printed in the console.}
-  \item{...     }{}
 }
-
  \details{ This function helps with the construction of tables in
             \emph{LaTeX} format.
            Besides, it allows a easy reading of the generated results
            by \link{FactoClass}. The function latexDF is an entrance
            to \code{xtable} and turns an object of class data.frame a table in LaTeX format.
         }
-
 \value{
 object of class \code{FactoClass.tex} with the following characteristics:
-
 \item{tvalp}{eigenvalues * 1000.}
 \item{c1}{eigenvectors.}
 \item{co}{coordinates of the columns.}
@@ -72,26 +68,17 @@ object of class \code{FactoClass.tex} with the following characteristics:
 \item{carac.cont}{cluster characterization by quantitative variables.}
 \item{cluster   }{vector indicating the cluster of each element.}
 }
-
 \author{
  Pedro Cesar del Campo \email{pcdelcampon@unal.edu.co}, Campo Elias Pardo \email{cepardot@unal.edu.co}
        }
-
 \examples{
-
 data(BreedsDogs)
-
 BD.act <- BreedsDogs[-7]  # active variables
 BD.ilu <- BreedsDogs[7]   # illustrative variables
-
 # MCA
-
 FaCl <- FactoClass( BD.act, dudi.acm,
                     scanFC = FALSE, dfilu = BD.ilu, nfcl = 10, k.clust = 4 )
-
 FactoClass.tex(FaCl,job="BreedsDogs1", append=TRUE)
 FactoClass.tex(FaCl,job="BreedsDogs", append=TRUE , p.clust = TRUE)
-
 }
-
 \keyword{multivariate}
