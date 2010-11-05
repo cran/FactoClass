@@ -1,5 +1,4 @@
  \name{Bogota}
- \docType{Bogota}
  \alias{Bogota}
  \title{Localities by Stratums in Bogota City}
  \description{

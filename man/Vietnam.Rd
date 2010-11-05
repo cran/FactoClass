@@ -1,6 +1,5 @@
 \encoding{latin1} 
 \name{Vietnam}
- \docType{Vietnam}
  \alias{Vietnam}
  \title{Student opinions about the Vietnam War}
  \description{

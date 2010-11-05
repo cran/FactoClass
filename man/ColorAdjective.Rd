@@ -1,5 +1,4 @@
  \name{ColorAdjective}
- \docType{ColorAdjective}
  \alias{ColorAdjective}
  \title{Associations between colors and adjectives.}
  \description{

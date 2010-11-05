@@ -1,5 +1,4 @@
  \name{BreedsDogs}
- \docType{BreedsDogs}
  \alias{BreedsDogs}
  \title{Breeds of Dog}
  \description{
