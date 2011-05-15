@@ -10,7 +10,7 @@ coordinates
 \usage{
 FactoClass( dfact, metodo, dfilu = NULL , nf = 2, nfcl = 10, k.clust = 3, 
             scanFC = TRUE , n.max = 5000 , n.clus = 1000 ,sign = 2.0,
-            conso=TRUE , n.indi = 25 )
+            conso=TRUE , n.indi = 25,row.w = rep(1, nrow(dfact)) )
 \method{print}{FactoClass}(x, \dots)
 analisis.clus(X,W)
 }
@@ -32,11 +32,11 @@ analisis.clus(X,W)
  \item{conso   }{when \code{conso} is TRUE, the process of consolidating the classification is 
  performed (default TRUE)}
  \item{n.indi  }{number of indices to draw in the histogram (default 25)}
+ \item{row.w   }{vector containing the row weights if metodo<>dudi.coa} 
  \item{x       }{object of class FactoClass}
  \item{\dots}{further arguments passed to or from other methods}
  \item{X       }{coordinates of the elements of a class}
  \item{W       }{weights of the elements of a class}
-
 }
 \details{
 Lebart et al. (1995) present a strategy to analyze a data table using multivariate methods, consisting

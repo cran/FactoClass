@@ -2,7 +2,7 @@
 ##  Funcion de enlace: Combinación de métodos factoriales y de clasificaciòn no            ##
 ##  supervisada.                                                                           ##
 ##                                                                                         ##
-##                                                                                         ##
+##  Mayo 15 de 2011 inclusión de parámetro de pesos en función FactoClass (CEPT)           ##
 ##                                                                                         ##
 ## Elaborado por: Pedro Cesar del Campo Neira                                              ##
 ## Revisado y modificado por: Campo Elías Pardo  INGLÉS  Nov.30/07                         ##
@@ -27,20 +27,21 @@
 #############################################################################################
 
 
-FactoClass<-function( dfact, metodo, dfilu = NULL , nf = 2, nfcl = 10, k.clust = 3, 
+FactoClass<-function( dfact, metodo,dfilu = NULL , nf = 2, nfcl = 10, k.clust = 3, 
                       scanFC = TRUE , n.max = 5000 , n.clus = 1000 ,sign = 2.0,
-                      conso=TRUE , n.indi = 25 )
+                      conso=TRUE , n.indi = 25,row.w = rep(1, nrow(dfact)))
 {
 
   n <- dim(dfact)[1]
 
   n.act  <- deparse(substitute(dfact))  ### Tipo caracter nombre de dfact
   metodo <- deparse(substitute(metodo)) ### Tipo caracter nombre de la función
-
-  call1 <- call(metodo,df = as.name(n.act), nf = nf , scannf = scanFC) ### construccion del llamado 
-                                                                       ### función dudi
+ ### construccion del llamado función dudi modificada para pesos en acm y acp
+  if(metodo=="dudi.coa") call1 <- call(metodo,df = as.name(n.act), nf = nf , scannf = scanFC)
+     else call1 <- call(metodo,df = as.name(n.act), nf = nf , scannf = scanFC,row.w=row.w) 
+                                                                        
   par(las=1)                                                                      
-  DuDi1 <- eval(call1) # evaluación del llamado función dudi
+  DuDi1 <- eval(call1) # evaluación del llamado función dudi.*
   nf    <- DuDi1$nf
   cat("The number of retained axes for factorial analysis is ",nf,"\n\n") 
 

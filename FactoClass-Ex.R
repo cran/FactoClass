@@ -78,7 +78,7 @@ flush(stderr()); flush(stdout())
 
 ### Name: FactoClass.tex
 ### Title: Table of Coordinates, Aids of Interpretation of the Principal
-###   Axes and
+###   Axes and Cluster Analysis in LaTeX format.
 ### Aliases: FactoClass.tex print.FactoClass.tex latexDF roundDF
 ### Keywords: multivariate
 
@@ -156,7 +156,7 @@ flush(stderr()); flush(stdout())
 
 ### Name: dudi.tex
 ### Title: LaTeX Tables of Coordinates and Aids to Interpretation of
-###   Principal
+###   Principal Axis Methods
 ### Aliases: dudi.tex latex
 ### Keywords: multivariate
 
