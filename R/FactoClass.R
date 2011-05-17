@@ -36,7 +36,8 @@ FactoClass<-function( dfact, metodo,dfilu = NULL , nf = 2, nfcl = 10, k.clust = 
 
   n.act  <- deparse(substitute(dfact))  ### Tipo caracter nombre de dfact
   metodo <- deparse(substitute(metodo)) ### Tipo caracter nombre de la función
- ### construccion del llamado función dudi modificada para pesos en acm y acp
+ ### construccion del llamado función dudi
+  row.w <- row.w/sum(row.w) # asegurar que los pesos suman 1
   if(metodo=="dudi.coa") call1 <- call(metodo,df = as.name(n.act), nf = nf , scannf = scanFC)
      else call1 <- call(metodo,df = as.name(n.act), nf = nf , scannf = scanFC,row.w=row.w) 
                                                                         
