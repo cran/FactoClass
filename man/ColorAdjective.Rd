@@ -10,7 +10,9 @@
  }
  \usage{data(ColorAdjective)}
  \format{Object of class data.frame with 89 rows and 11 columns.}
- \source{Jambu, M. and Lebeaux M.O. Cluster Analysis and Data Analysis. North-Holland. Amsterdam 1983.}
- \references{Fine, J. (1996), 'Iniciacion a los analisis de datos multidimensionales a partir de ejemplos',
-             Notas de curso, Montevideo. }
+ \source{
+Jambu, M. and Lebeaux M.O. Cluster Analysis and Data Analysis. North-Holland. Amsterdam 1983.}
+ \references{
+Fine, J. (1996), \emph{Iniciacion a los analisis de datos multidimensionales a partir de ejemplos},
+             Notas de curso, Montevideo}
  \keyword{datasets}

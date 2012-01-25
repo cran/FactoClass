@@ -1,6 +1,6 @@
 Package: FactoClass
-Version: 1.0.7
-Date: 2011-05-17
+Version: 1.0.8
+Date: 2012-01-25
 Title: Combination of Factorial Methods and Cluster Analysis
 Author: Campo Elias Pardo <cepardot@unal.edu.co> and Pedro Cesar del
         Campo <pcdelcampon@unal.edu.co>, with the contributions from
@@ -13,6 +13,6 @@ Description: Multivariate exploration of a data table with factorial
         analysis and cluster methods.
 License: GPL (>= 2)
 Encoding: latin1
-Packaged: 2011-05-17 09:37:38 UTC; estadistica
+Packaged: 2012-01-31 16:19:52 UTC; root
 Repository: CRAN
-Date/Publication: 2011-05-17 10:05:48
+Date/Publication: 2012-02-01 08:13:22

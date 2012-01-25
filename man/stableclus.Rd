@@ -1,6 +1,5 @@
 \name{stableclus}
 \alias{stableclus}
-\alias{stableclus}
 \title{Stable clusters for cluster analysis}
 \description{Performs Stable Cluster Algorithm for cluster analysis, using factorial coordinates from a \code{dudi} object}
 
@@ -41,7 +40,8 @@ Lebart, L., Piron, M. and Morineau, A. (2006), Statisitique exploratoire multidi
 et inférence en fouilles de données, 4 edn, Dunod, Paris.
 }
 \author{
-Carlos Andrés Arias Robledo \email{caariasr@unal.edu.co}
+Carlos Andrés Arias \email{caariasr@unal.edu.co},
+Campo Elias Pardo \email{cepardot@unal.edu.co}
 }
 
 

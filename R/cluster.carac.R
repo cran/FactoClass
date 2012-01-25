@@ -85,13 +85,15 @@ cluster.carac<-function( tabla , clase , tipo.v="d" , v.lim = 2 ){
        
   n      <- dim(tabla)[1]                          # No. individuos
   tabla  <- data.frame(numeric(n),tabla)           # variable falsa
-  mean.X <- mean(tabla)                            # media general
+#  mean.X <- mean(tabla)                            # media general
+  mean.X <- sapply(tabla,mean)                     # mean is deprecated for data.frame 
   S2.X   <- diag(var(tabla))                       # varianzas generales
    
   interno <- function(c.tabla){     ##  Funcion para procesar en un solo cluster_k
 
              nk       <- dim(c.tabla)[1]                       ## individuos en cluster_k
-             mean.Xk  <- mean(c.tabla)                         ## media cluster_k
+            # mean.Xk  <- mean(c.tabla)                         ## media cluster_k
+             mean.Xk  <- sapply(c.tabla,mean) 
              S2.Xk    <- (n-nk)* S2.X / ( n*nk )               ## varianzas cluster_k
 
              V.test   <- ( mean.Xk - mean.X ) / sqrt(S2.Xk)    ## valores.test cluster_k

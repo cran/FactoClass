@@ -1,6 +1,5 @@
 \name{list.to.data}
 \alias{list.to.data}
-\alias{list.to.data}
 \title{list to data.frame}
 \description{Modification of an object of class \code{list} into an object of class \code{data.frame}.}
 \usage{

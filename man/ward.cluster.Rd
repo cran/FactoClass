@@ -1,6 +1,5 @@
 \name{ward.cluster}
 \alias{ward.cluster}
-\alias{ward.cluster}
 \title{Hierarchic Classification by Ward's Method}
 \description{
  Performs the classification by Ward's method from the matrix of Euclidean distances.
@@ -37,8 +36,8 @@ The Ward's distance between two elements to classify $i$ and $l$ is given by:
   \url{http://www.docentes.unal.edu.co/cepardot}      }
 
 \references{
-Lebart, L. and Morineau, A. and Piron, M. (1995) Statisitique exploratoire
-multidimensionnelle, Paris.
+Lebart, L. and Morineau, A. and Piron, M. (1995) \emph{Statisitique exploratoire
+multidimensionnelle}, Paris.
 }
 
 \examples{

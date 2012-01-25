@@ -20,20 +20,18 @@
 #define KMEANSW_H
 
 extern "C" {
-void kmnsw ( double *a, int *mR, int *nR, double *c, double *wh, int *kR, int *ic1, int *nc, 
+void kmnsw ( double *a, int *mR, int *nR, double *c, double *wh, int *kR, int *ic1, int *nc,
              int *iterR, double *wss, int *ifault );
 }
 
-void optra ( double a[], int m, int n, double c[], double wh[], double whc[], int k, int ic1[], 
-             int ic2[], int nc[], int ncp[], double d[], 
+void optra ( double a[], int m, int n, double c[], double wh[], double whc[], int k, int ic1[],
+             int ic2[], int nc[], int ncp[], double d[],
              int itran[], int live[], int *indx, int *ifault );
 
-void qtran ( double a[], int m, int n, double c[], double wh[], double whc[], int k, int ic1[], 
-             int ic2[], int nc[], int ncp[], double d[], 
+void qtran ( double a[], int m, int n, double c[], double wh[], double whc[], int k, int ic1[],
+             int ic2[], int nc[], int ncp[], double d[],
              int itran[], int *indx, int *ifault );
 
 double r8_huge ( void );
-
-void timestamp ( void );
 
 #endif

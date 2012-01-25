@@ -1,7 +1,6 @@
 \name{Fac.Num}
 \alias{Fac.Num}
-\alias{Fac.Num}
-\title{Division of qualitative and quantitative variables.}
+\title{Division of qualitative and quantitative variables}
 \description{
 An object of class data.frame is divided into a list with two tables, one with quantitative variables
 and the other with qualitative variables.

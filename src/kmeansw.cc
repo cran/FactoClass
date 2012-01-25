@@ -13,11 +13,10 @@
  *  along with this program; if not, a copy is available at
  *  http://www.r-project.org/Licenses/
  */
- 
+
 //
 
 #include <cstdlib>
-#include <iostream>
 #include <iomanip>
 #include <cmath>
 #include <ctime>
@@ -32,7 +31,7 @@ extern "C"  {
 //****************************************************************************80
 //MODIF function name: kmnsw
 //NEW   weight of each point variable: wh
-void kmnsw ( double *a, int *m_p, int *n_p, double *c, double *wh, int *k_p, 
+void kmnsw ( double *a, int *m_p, int *n_p, double *c, double *wh, int *k_p,
                  int *ic1, int *nc, int *iter_p, double *wss, int *ifault )
 //****************************************************************************80
 //
@@ -42,8 +41,8 @@ void kmnsw ( double *a, int *m_p, int *n_p, double *c, double *wh, int *k_p,
 //
 //     Discussion:
 //
-//       This routine attempts to divide M points in N-dimensional space into 
-//       K clusters so that the within cluster sum of squares is minimized 
+//       This routine attempts to divide M points in N-dimensional space into
+//       K clusters so that the within cluster sum of squares is minimized
 //       considering weights for each point.
 //
 //     Modified:
@@ -54,7 +53,7 @@ void kmnsw ( double *a, int *m_p, int *n_p, double *c, double *wh, int *k_p,
 //
 //       FORTRAN77 original by John Hartigan, Manchek Wong.
 //       C++ version by John Burkardt.
-//NEW    C++ version modified considering weights by Camilo Torres. 
+//NEW    C++ version modified considering weights by Camilo Torres.
 //
 //     Reference:
 //
@@ -78,7 +77,7 @@ void kmnsw ( double *a, int *m_p, int *n_p, double *c, double *wh, int *k_p,
 //
 //       Input, int K, the number of clusters.
 //
-//       Output, int IC1(M), the cluster to which each point 
+//       Output, int IC1(M), the cluster to which each point
 //       is assigned.
 //
 //       Output, int NC(K), the number of points in each cluster.
@@ -91,7 +90,7 @@ void kmnsw ( double *a, int *m_p, int *n_p, double *c, double *wh, int *k_p,
 //       Output, int *IFAULT, error indicator.
 //       0, No error was detected.
 //       1, At least one cluster is empty or with a weight lower than epsilon
-//          after the initial assignment.  
+//          after the initial assignment.
 //          A better set of initial cluster centers is needed.
 //       2, The allowed maximum number off iterations was exceeded.
 //       3, K is less than or equal to 1, or greater than or equal to M.
@@ -117,9 +116,9 @@ void kmnsw ( double *a, int *m_p, int *n_p, double *c, double *wh, int *k_p,
   int *itran;
   int *live;
   int *ncp;
-  double *whc; //NEW 
+  double *whc; //NEW
   int m=*m_p, n=*n_p, k=*k_p, iter=*iter_p; //NEW
-  
+
   *ifault = 0;
 
   if ( k <= 1 || m <= k )
@@ -172,7 +171,7 @@ void kmnsw ( double *a, int *m_p, int *n_p, double *c, double *wh, int *k_p,
 
       if ( db < dt[1] )
       {
-        if ( dt[0] <= db ) 
+        if ( dt[0] <= db )
         {
           dt[1] = db;
           ic2[i-1] = l;
@@ -326,12 +325,12 @@ void kmnsw ( double *a, int *m_p, int *n_p, double *c, double *wh, int *k_p,
 
   for ( j = 1; j <= n; j++ )
   {
-    
+
     for ( l = 1; l <= k; l++ )
     {
       if(whc[l-1] > epsilon) //NEW
         c[l-1+(j-1)*k] = c[l-1+(j-1)*k] / whc[l-1]; //MODIF
-      else //NEW* 
+      else //NEW*
         c[l-1+(j-1)*k] = c[l-1+(j-1)*k] * r8_huge(); //NEW*
     }
 
@@ -356,8 +355,8 @@ void kmnsw ( double *a, int *m_p, int *n_p, double *c, double *wh, int *k_p,
 
 //****************************************************************************80
 //DEL   variables: an1, an2
-void optra ( double a[], int m, int n, double c[], double wh[], double whc[], 
-             int k, int ic1[], int ic2[], int nc[], int ncp[], 
+void optra ( double a[], int m, int n, double c[], double wh[], double whc[],
+             int k, int ic1[], int ic2[], int nc[], int ncp[],
              double d[], int itran[], int live[], int *indx, int *ifault)
 //****************************************************************************80
 //
@@ -381,7 +380,7 @@ void optra ( double a[], int m, int n, double c[], double wh[], double whc[],
 //
 //       FORTRAN77 original by John Hartigan, Manchek Wong.
 //       C++ version by John Burkardt.
-//NEW    C++ version modified considering weights by Camilo Torres. 
+//NEW    C++ version modified considering weights by Camilo Torres.
 //
 //     Reference:
 //
@@ -407,13 +406,13 @@ void optra ( double a[], int m, int n, double c[], double wh[], double whc[],
 //
 //       Input, int K, the number of clusters.
 //
-//       Input/output, int IC1(M), the cluster to which each 
+//       Input/output, int IC1(M), the cluster to which each
 //       point is assigned.
 //
-//       Input/output, int IC2(M), used to store the cluster 
+//       Input/output, int IC2(M), used to store the cluster
 //       which each point is most likely to be transferred to at each step.
 //
-//       Input/output, int NC(K), the number of points in 
+//       Input/output, int NC(K), the number of points in
 //       each cluster.
 //
 //       Input/output, int NCP(K).
@@ -424,7 +423,7 @@ void optra ( double a[], int m, int n, double c[], double wh[], double whc[],
 //
 //       Input/output, int LIVE(K).
 //
-//       Input/output, int *INDX, the number of steps since a 
+//       Input/output, int *INDX, the number of steps since a
 //       transfer took place.
 //
 {
@@ -457,7 +456,7 @@ void optra ( double a[], int m, int n, double c[], double wh[], double whc[],
 //
   for ( l = 1; l <= k; l++ )
   {
-    if ( itran[l-1] == 1) 
+    if ( itran[l-1] == 1)
     {
       live[l-1] = m + 1;
     }
@@ -486,13 +485,13 @@ void optra ( double a[], int m, int n, double c[], double wh[], double whc[],
           df = a[i-1+(j-1)*m] - c[l1-1+(j-1)*k];
           de = de + df * df;
         }
-        
+
         walw = whc[l1-1] - wh[i-1]; //NEW
         if(walw > epsilon) //NEW*
           d[i-1] = (de * whc[l1-1]) / walw; //MODIF
         else //NEW*
           d[i-1] = (de * whc[l1-1]) * r8_huge(); //NEW*
-      
+
       }
 //
 //  Find the cluster with minimum R2.
@@ -509,7 +508,7 @@ void optra ( double a[], int m, int n, double c[], double wh[], double whc[],
         r2 = (da * whc[l2-1]) / walt; //MODIF
       else //NEW*
         r2 = (da * whc[l2-1]) * r8_huge(); //NEW*
-      
+
       for ( l = 1; l <= k; l++ )
       {
 //
@@ -534,7 +533,7 @@ void optra ( double a[], int m, int n, double c[], double wh[], double whc[],
             rr = (dc * whc[l-1]) / walt; //NEW
           else //NEW*
             rr = (dc * whc[l-1]) * r8_huge(); //NEW*
-          
+
           if ( rr < r2 )
           {
             r2 = rr; //MODIF
@@ -566,7 +565,7 @@ void optra ( double a[], int m, int n, double c[], double wh[], double whc[],
 //DEL        alt = al2 + 1.0;
         walw = whc[l1-1] - wh[i-1]; //NEW
         walt = whc[l2-1] + wh[i-1]; //NEW
-        
+
         for ( j = 1; j <= n; j++ )
         {
           aux = a[i-1+(j-1)*m] * wh[i-1]; //NEW
@@ -620,8 +619,8 @@ void optra ( double a[], int m, int n, double c[], double wh[], double whc[],
 
 //****************************************************************************80
 //DEL   variables: an1, an2
-void qtran ( double a[], int m, int n, double c[], double wh[], double whc[], 
-             int k, int ic1[], int ic2[], int nc[], int ncp[], 
+void qtran ( double a[], int m, int n, double c[], double wh[], double whc[],
+             int k, int ic1[], int ic2[], int nc[], int ncp[],
              double d[], int itran[], int *indx, int *ifault )
 //****************************************************************************80
 //
@@ -649,7 +648,7 @@ void qtran ( double a[], int m, int n, double c[], double wh[], double whc[],
 //
 //       FORTRAN77 original by John Hartigan, Manchek Wong.
 //       C++ version by John Burkardt.
-//NEW    C++ version modified considering weights by Camilo Torres. 
+//NEW    C++ version modified considering weights by Camilo Torres.
 //
 //     Reference:
 //
@@ -675,13 +674,13 @@ void qtran ( double a[], int m, int n, double c[], double wh[], double whc[],
 //
 //       Input, int K, the number of clusters.
 //
-//       Input/output, int IC1(M), the cluster to which each 
+//       Input/output, int IC1(M), the cluster to which each
 //       point is assigned.
 //
-//       Input/output, int IC2(M), used to store the cluster 
+//       Input/output, int IC2(M), used to store the cluster
 //       which each point is most likely to be transferred to at each step.
 //
-//       Input/output, int NC(K), the number of points in 
+//       Input/output, int NC(K), the number of points in
 //       each cluster.
 //
 //       Input/output, int NCP(K).
@@ -690,7 +689,7 @@ void qtran ( double a[], int m, int n, double c[], double wh[], double whc[],
 //
 //       Input/output, int ITRAN(K).
 //
-//       Input/output, int INDX, counts the number of steps 
+//       Input/output, int INDX, counts the number of steps
 //       since the last transfer.
 //
 {
@@ -767,7 +766,7 @@ void qtran ( double a[], int m, int n, double c[], double wh[], double whc[],
             de = a[i-1+(j-1)*m] - c[l2-1+(j-1)*k];
             dd = dd + de * de;
           }
-          
+
           walt = whc[l2-1] + wh[i-1]; //NEW
           if(walt > epsilon) //NEW*
             r2 = (dd * whc[l2-1]) / walt; //MODIF
@@ -792,7 +791,7 @@ void qtran ( double a[], int m, int n, double c[], double wh[], double whc[],
 //DEL            alt = al2 + 1.0;
             walw = whc[l1-1] - wh[i-1]; //NEW
             walt = whc[l2-1] + wh[i-1]; //NEW
-        
+
             for ( j = 1; j <= n; j++ )
             {
               aux = a[i-1+(j-1)*m] * wh[i-1]; //NEW
@@ -854,7 +853,7 @@ double r8_huge ( void )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
@@ -874,48 +873,4 @@ double r8_huge ( void )
   value = 1.0E+30;
 
   return value;
-}
-//****************************************************************************80
-
-void timestamp ( void )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TIMESTAMP prints the current YMDHMS date as a time stamp.
-//
-//  Example:
-//
-//    May 31 2001 09:45:54 AM
-//
-//  Modified:
-//
-//    03 October 2003
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    None
-//
-{
-# define TIME_SIZE 40
-
-  static char time_buffer[TIME_SIZE];
-  const struct tm *tm;
-  size_t len;
-  time_t now;
-
-  now = time ( NULL );
-  tm = localtime ( &now );
-
-  len = strftime ( time_buffer, TIME_SIZE, "%d %B %Y %I:%M:%S %p", tm );
-
-  cout << time_buffer << "\n";
-
-  return;
-# undef TIME_SIZE
 }

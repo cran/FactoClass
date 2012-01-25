@@ -1,7 +1,6 @@
 \name{cluster.carac}
 \alias{cluster.carac}
-\alias{cluster.carac}
-\title{Cluster Characterization by Variables.}
+\title{Cluster Characterization by Variables}
 \description{
 It makes the characterization of the classes or cluster considering the variables in tabla. 
 These variables can be
