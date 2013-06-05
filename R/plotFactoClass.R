@@ -35,7 +35,7 @@ planfac(dudi,x=x,y=y,xlim=xlim,ylim=ylim,rotx=rotx,roty=roty,roweti=roweti,
      if (roty) roty<- -1 else roty<-1
      corli <- cbind(rotx*dudi$li[,x],roty*dudi$li[,y])
      
-     s.class(corli,xax=x,yax=y,fac=FC$cluster,wt=dudi$lw,add.plot = TRUE,
+     s.class(corli,fac=FC$cluste, wt=dudi$lw,add.plot = TRUE,
               cstar = cstar, cellipse = 0,
               label=nclus,clabel=cex.clu,col=col.row)
  

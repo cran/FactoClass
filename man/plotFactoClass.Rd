@@ -7,13 +7,14 @@
  and identifying with colors the cluster to which each element belongs.
 }
 \usage{
-plotFactoClass(FC , x=1, y=2,xlim=NULL,ylim=NULL, rotx=FALSE, roty=FALSE,
-                roweti=row.names(dudi$li),
-                coleti=row.names(dudi$co),titre=NULL, axislabel=TRUE,
-                col.row=1:FC$k, col.col="blue", cex=0.8, cex.row=0.8, cex.col=0.8,
-                all.point=TRUE, Trow=TRUE, Tcol=TRUE, 
-                 cframe=1.2, ucal=0,
-                cex.global=1, infaxes="out",nclus=paste("cl", 1:FC$k, sep=""),cex.clu=cex.row,cstar=1 )
+plotFactoClass(FC,x=1,y=2,xlim=NULL,ylim=NULL,rotx=FALSE,roty=FALSE,
+                roweti=row.names(dudi$li),coleti=row.names(dudi$co),
+                titre=NULL,axislabel=TRUE,col.row=1:FC$k, 
+                col.col="blue",cex=0.8,cex.row=0.8,cex.col=0.8,
+                all.point=TRUE,Trow=TRUE,Tcol=TRUE,cframe=1.2,ucal=0,
+                cex.global=1,infaxes="out",
+                nclus=paste("cl", 1:FC$k, sep=""),
+                cex.clu=cex.row,cstar=1 )
 
 }
 \arguments{
@@ -50,12 +51,13 @@ plotFactoClass(FC , x=1, y=2,xlim=NULL,ylim=NULL, rotx=FALSE, roty=FALSE,
 }
 \details{
    It draws the factorial plane with the clusters. Only for objects \code{FactoClass}
-   see \link{FactoClass}. The factorial plane is drawn with \code{planfac} and the classes are projected 
-    with \code{s.class} of \code{ade4}   
+   see \link{FactoClass}. The factorial plane is drawn with \code{planfac} and the classes 
+   are projected with \code{s.class} of \code{ade4}   
 }
 \value{
   It draws the factorial plane x, y using $co, $li of the object of class \code{FactoClass}.
-  If ucal > 0, the function inertia.dudi is used to calculate the quality of representation in the plane. 
+  If ucal > 0, the function inertia.dudi is used to calculate the quality of representation 
+  in the plane. 
 }
 \author{ Campo Elías Pardo \email{cepardot@unal.edu.co}
          Pedro Cesar del Campo \email{pcdelcampon@unal.edu.co},
@@ -71,7 +73,7 @@ Bog.ilu <- Bogota[ 1]
 
 FC.Bogota<-FactoClass(Bog.act, dudi.coa,Bog.ilu,nf=2,nfcl=5,k.clust=5,scanFC=FALSE)
 
-plotFactoClass(FC.Bogota,titre="Primer plano factorial del ACS de la TC de manzanas de Bogota",
+plotFactoClass(FC.Bogota,titre="First Factorial Plane from the SCA of Bogota's Blocks",
      col.row=c("maroon2","orchid4","darkgoldenrod2","dark red","aquamarine4"))
 
 }

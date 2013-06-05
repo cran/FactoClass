@@ -1,4 +1,4 @@
-eae11c36e3422d92b3829bc2e34f8f84 *DESCRIPTION
+d33de8f3bec2ae275754f294545efb8d *DESCRIPTION
 f3317330b9135aff8abf13fc34fb67fb *NAMESPACE
 fc4dc5814ec5e60899dacf163e4a16e5 *R/Fac.Num.R
 b3643054909cef5b8e99e1244677d46c *R/FactoClass.R
@@ -9,7 +9,7 @@ dbe8852bcdade0ebf7114ef437f42bcb *R/cluster.carac.R
 ccd41fc9264f20b99f6ace2bb217011e *R/kmeansW.R
 afa572234d4c326b31a181783e903b6a *R/list.to.data.R
 16efa3f0dce469ca9133dbd8d3f21550 *R/planfac.R
-614651caf4dbaf839a642f0d6a2fb2a0 *R/plotFactoClass.R
+ec22bf4d6f8e2d1e80b14a5323a88127 *R/plotFactoClass.R
 da6eb1fc8729e48f689ceef93529ad09 *R/print.FactoClass.R
 732894b73a3202210629a916d704a45b *R/stableclus.R
 d23678f21a0014c0c9ef827da8822a69 *R/ward.cluster.R
@@ -31,7 +31,7 @@ fe59c9c4c834c91e681160d4ba6e7271 *man/dudi.tex.Rd
 8561ecdf8a4bd44a0d69b3d78a416292 *man/kmeansW.Rd
 1e24138e66b9a95bac6a0d6a7045b1ef *man/list.to.data.Rd
 baf48366b54119fe8e9ed60618b85feb *man/planfac.Rd
-9e525b6786b21b7f3953dd8ccd0065de *man/plotFactoClass.Rd
+95551005685f30ee6f7043ca207dca62 *man/plotFactoClass.Rd
 b8efeafe784d3f73a1f37f73f61cec38 *man/stableclus.Rd
 ed90d9ea1395a0eaceb96f1d4e8e8ed8 *man/ward.cluster.Rd
 56df2893e63ca1850c4b6b089d76a302 *src/kmeansw.cc
