@@ -8,7 +8,7 @@
 #   x,y ejes a graficar (1,2)
 #   roweti: filas a etiquetar (todas)
 #   coleti: columnas a etiquetar (todas)
-#   titre: título de la gráfica (NULL)
+#   main: título de la gráfica (NULL)
 #   axislabel:
 #   col.row: color para las filas (black)
 #     col.col: color para las colulmnas (blue)
@@ -24,18 +24,17 @@
 #   cex.global: factor de escala para todas las etiquetas
 #     infaxes: lugar para imprimir información de ejes: "out","in","no" ("out")
 #---------------------------------------------------------------------------------------------
-planfac <- function(dudi,x=1,y=2,xlim=NULL,ylim=NULL,rotx=FALSE,roty=FALSE,roweti=row.names(dudi$li),
-                        coleti=row.names(dudi$co),titre=NULL,axislabel=TRUE,
+plot.dudi <- function(x,ex=1,ey=2,xlim=NULL,ylim=NULL,main=NULL,rotx=FALSE,roty=FALSE,roweti=row.names(dudi$li),
+                        coleti=row.names(dudi$co),axislabel=TRUE,
                         col.row="black",col.col="blue",cex=0.8,cex.row=0.8,cex.col=0.8,
                         all.point=TRUE,Trow=TRUE,Tcol=TRUE,cframe=1.2,ucal=0,
-                cex.global=1,infaxes="out")
+                cex.global=1,infaxes="out",...)
 {
   library(ade4)     
-#  if (!inherits(dudi))
-#
-#               stop("Object of class 'coa', 'acm', 'fca' or 'nsc' expected")   
+   dudi <- x
    if (!inherits(dudi, "dudi"))  stop("Object of class  'dudi' expectes")
-
+   x <- ex
+   y <- ey
 # rotación de ejes
 if (rotx) rotx=-1 else rotx=1
 if (roty) roty=-1 else roty=1
@@ -77,7 +76,7 @@ if (ucal>0){
         yaxs = "i", frame.plot = TRUE)
           sutil.grid(cex)
  
-          scatterutil.sub(titre, cex)
+          scatterutil.sub(main, cex)
         if (infaxes=="in"){
         text(xlim[2],ylim[1],adj=c(1,0),paste("Factor ",x,": ",eigx," (",peigx,"%)",sep=""),cex=cex) 
             text(xlim[1],ylim[2],adj=c(0,1),paste("Factor ",y,": ",eigy," (",peigy,"%)",sep=""),cex=cex)
@@ -85,7 +84,7 @@ if (ucal>0){
     }
     # estilo normal 
     if (infaxes=="out"){ 
-    plot(0, 0, main = titre, xlab = paste("Factor ",x,": ",eigx," (",peigx,"%)",sep=""), 
+    plot(0, 0, main = main, xlab = paste("Factor ",x,": ",eigx," (",peigx,"%)",sep=""), 
                ylab = paste("Factor ",y,": ",eigy," (",peigy,"%)",sep=""), 
                xlim = xlim, ylim = ylim, col = "white", asp=1, cex=cex,
                cex.lab=cex.lab,cex.axis=cex.axis,cex.main=cex.main,las=1)
@@ -93,7 +92,7 @@ if (ucal>0){
           sutil.grid(cex,FALSE)
 
     }
-    abline(h = 0, v = 0, lty = 1,col="darkgrey")
+    abline(h = 0, v = 0, lty = 2)#,col="darkgrey")
     if(all.point){                                                                      
         if(Trow) points(cbind(rotx*dudi$li[,x],roty*dudi$li[,y]), 
                         pch = 20, col = col.row, cex = cex.row)
@@ -131,25 +130,25 @@ if(Tcol) {
     fxy <- subset(dudi$co[coleti,],select=c(x,y))
     fxy[,1] <- rotx*fxy[,1]
     fxy[,2] <- roty*fxy[,2]
-    fxyB <- subset(fxy,abs(fxy[,2])>abs(fxy[,1]) & fxy[,2] < 0)
+    fxyB <- subset(fxy,abs(fxy[,2])>=abs(fxy[,1]) & fxy[,2] <= 0)
     if (nrow(fxyB)>0) 
         text(x=fxyB[,1],y=fxyB[,2],
                 labels=rownames(fxyB),col=col.col,pos=1,cex=cex.col)
-    fxyL <- subset(fxy,abs(fxy[,2])<abs(fxy[,1]) & fxy[,1] < 0)
+    fxyL <- subset(fxy,abs(fxy[,2])<=abs(fxy[,1]) & fxy[,1] <= 0)
     if (nrow(fxyL)>0) 
         text(x=fxyL[,1],y=fxyL[,2],
                 labels=rownames(fxyL),col=col.col,pos=2,cex=cex.col)
-    fxyA <- subset(fxy,abs(fxy[,2])>abs(fxy[,1]) & fxy[,2] > 0)
+    fxyA <- subset(fxy,abs(fxy[,2])>=abs(fxy[,1]) & fxy[,2] >= 0)
     if (nrow(fxyA)>0) 
         text(x=fxyA[,1],y=fxyA[,2],
                 labels=rownames(fxyA),col=col.col,pos=3,cex=cex.col)
-    fxyR <- subset(fxy,abs(fxy[,2])<abs(fxy[,1]) & fxy[,1] > 0)
+    fxyR <- subset(fxy,abs(fxy[,2])<=abs(fxy[,1]) & fxy[,1] >= 0)
     if (nrow(fxyR)>0) 
         text(x=fxyR[,1],y=fxyR[,2],
                 labels=rownames(fxyR),col=col.col,pos=4,cex=cex.col)
 }
  }
-#------------------fin de planfac---------------------------------------------------------------
+#------------------fin de plot.dudi antiguo planfac--------------------
 # grilla tomada de ade4
 "sutil.grid" <- function (cgrid,scale=TRUE) {
     col <- "lightgray"

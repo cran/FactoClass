@@ -25,11 +25,10 @@ dudi <- FC$dudi
  names(col.r) <-  names(FC$cluster)
 colpunto <- "black"
 
-planfac(dudi,x=x,y=y,xlim=xlim,ylim=ylim,rotx=rotx,roty=roty,roweti=roweti,
-                        coleti=coleti,titre=titre,axislabel,
-                        col.row=colpunto,col.col,cex,cex.row,cex.col,
-                        all.point,Trow,Tcol,cframe,ucal,
-                        cex.global,infaxes)
+plot.dudi(dudi,ex=x,ey=y,xlim=xlim,ylim=ylim,main=titre,rotx=rotx,roty=roty,roweti=roweti,
+     coleti=coleti,axislabel=axislabel,                        	col.row=colpunto,col.col=col.col,cex=cex,cex.row=cex.row,cex.col=cex.col,
+                        all.point=all.point,Trow=Trow,Tcol=Tcol,cframe=cframe,ucal=ucal,
+                        cex.global=cex.global,infaxes=infaxes)
 # grafica de las clases
      if (rotx) rotx<- -1 else rotx<-1
      if (roty) roty<- -1 else roty<-1
@@ -38,7 +37,6 @@ planfac(dudi,x=x,y=y,xlim=xlim,ylim=ylim,rotx=rotx,roty=roty,roweti=roweti,
      s.class(corli,fac=FC$cluste, wt=dudi$lw,add.plot = TRUE,
               cstar = cstar, cellipse = 0,
               label=nclus,clabel=cex.clu,col=col.row)
- 
 }
 #---------------------------------------------------------------------------------------------
 

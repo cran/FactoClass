@@ -1,30 +1,31 @@
-\name{planfac}
-\alias{planfac}
+\encoding{latin1}
+\name{plot.dudi}
+\alias{plot.dudi}
 \alias{sutil.grid}
-\title{Correspondence Analysis Factorial Planes}
+\title{Factorial Planes from Objects of Class dudi}
 \description{
- It plots factorial planes of a correspondence analysis 
+ It plots factorial planes from objects of class \code{dudi}
 }
 \usage{
-planfac(dudi,x=1,y=2,xlim=NULL,ylim=NULL,rotx=FALSE,roty=FALSE,roweti=row.names(dudi$li),
-                        coleti=row.names(dudi$co),titre=NULL,axislabel=TRUE,
-                        col.row="black",col.col="blue",cex=0.8,cex.row=0.8,cex.col=0.8,
-                        all.point=TRUE,Trow=TRUE,Tcol=TRUE,cframe=1.2,ucal=0,
-                cex.global=1,infaxes="out")
+\method{plot}{dudi}(x,ex=1,ey=2,xlim=NULL,ylim=NULL,main=NULL,rotx=FALSE,roty=FALSE,
+			roweti=row.names(dudi$li),coleti=row.names(dudi$co),
+			axislabel=TRUE,col.row="black",col.col="blue",cex=0.8,
+			cex.row=0.8,cex.col=0.8,all.point=TRUE,Trow=TRUE,Tcol=TRUE,
+			cframe=1.2,ucal=0,cex.global=1,infaxes="out",\dots)
 sutil.grid(cgrid,scale=TRUE)    
 }
 \arguments{
-  \item{dudi}{ object of type dudi}
-  \item{x}{number indentifying the factor to be used as horizontal axis. Default x=1}
-  \item{y}{number indentifying the factor to be used as vertical axis. Default y=2}
+  \item{x}{ object of type dudi}
+  \item{ex}{number indentifying the factor to be used as horizontal axis. Default 1}
+  \item{ey}{number indentifying the factor to be used as vertical axis. Default 2}
   \item{xlim}{the x limits (x1, x2) of the plot}
   \item{ylim}{the y limits of the plot}  
+  \item{main}{graphic title}
   \item{rotx}{TRUE if you want change the sign of the horizontal coordinates. Default FALSE }
   \item{roty}{TRUE if you want change the sign of the vertical coordinates. Default FALSE }
   \item{roweti}{selected row points for the graphic. Default all points}
   \item{coleti}{selected column points for the graphic. Default all points}
-  \item{titre}{graphic title}
-  \item{axislabel}{if it is TRUE the axis information is written}
+   \item{axislabel}{if it is TRUE the axis information is written}
   \item{col.row}{color for row points and row labels. Default "black"}
   \item{col.col}{color for column points and column labels. Default "blue"}
   \item{cex}{global scale for the labels. Default cex=0.8}
@@ -39,15 +40,16 @@ sutil.grid(cgrid,scale=TRUE)
   \item{infaxes}{place to put the axes information: "out","in","no". Default infaxes="out".
     If infaxes="out" the graphic is similar to \code{FactoMineR} graphics, otherwise the style
     is similar to the one in \code{ade4}, without axes information when infaxes="no"}
-  \item{cgrid}{sutil.grid internal}
-  \item{scale}{sutil.grid internal}  
+  \item{\dots}{further arguments passed to or from other methods}
+  \item{cgrid}{internal parameter}
+  \item{scale}{internal}  
 }
 \details{
   Plot the selected factorial plane. 
-  \code{sutil.grid} is used by \code{planfac} 
+  \code{sutil.grid} is used by \code{plot.dudi} 
 }
 \value{
-  It graphs the factorial plane x,y using  $co, $li of a "dudi" "coa" object. 
+  It graphs the factorial plane x,y using  $co, $li of a "dudi" object. 
   If ucal > 0, the function inertia.dudi is used to calculate the quality of representation 
   on the plane 
 }
@@ -59,10 +61,10 @@ sutil.grid(cgrid,scale=TRUE)
 data(ardeche)
 ca <- dudi.coa(ardeche$tab,scannf=FALSE,nf=4)
 # FactoMineR style
-planfac(ca,ucal=40,all.point=FALSE,titre="SCA of Ardeche, First Factorial Plane")
+plot.dudi(ca,ucal=40,all.point=FALSE,main="SCA of Ardeche, First Factorial Plane")
 dev.new()
 # ade4 style
-planfac(ca,x=3,y=4,ucal=20,all.point=FALSE,infaxes="in",titre="SCA of
+plot.dudi(ca,ex=3,ey=4,ucal=20,all.point=FALSE,infaxes="in",main="SCA of
 Ardeche, Plane 3-4")
 }
 \keyword{multivariate}
