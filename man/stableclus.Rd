@@ -27,10 +27,10 @@ Arias, C. A.; Zarate, D.C. and Pardo C.E. (2009), 'Implementacion del metodo de 
 Estadisticas Oficiales
 Medellín Colombia, Julio 16 al 20 de 2009
 Universidad Nacional de Colombia. Bogota.
-\url{http://www.docentes.unal.edu.co/cepardot/docs/}
+\url{http://www.docentes.unal.edu.co/cepardot/docs/SimposiosEstadistica/AriasZaratePardo09.pdf}
 
-Lebart, L. (2008), 'DtmVic: Data and Text Mining - Visualization, Inference, Classification. Exploratory statistical processing of complex data sets comprising both numerical and textual data.', Web.
- \url{http://egsh.enst.fr/lebart/}
+Lebart, L. (2015), 'DtmVic: Data and Text Mining - Visualization, Inference, Classification. Exploratory statistical processing of complex data sets comprising both numerical and textual data.', Web.
+ \url{http://www.dtmvic.com/}
 
 Lebart, L., Morineau, A., Lambert, T. and Pleuvret, P. (1999), \emph{SPAD}. Systéme Pour L'Analyse des Donées,
 Paris.
@@ -40,7 +40,7 @@ Lebart, L., Piron, M. and Morineau, A. (2006), Statisitique exploratoire multidi
 et inférence en fouilles de données, 4 edn, Dunod, Paris.
 }
 \author{
-Carlos Andrés Arias \email{caariasr@unal.edu.co},
+Carlos Andres Arias \email{caariasr@unal.edu.co},
 Campo Elias Pardo \email{cepardot@unal.edu.co}
 }
 

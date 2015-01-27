@@ -9,7 +9,7 @@
 plotfp(co,x=1,y=2,eig=NULL,cal=NULL,ucal=0,xlim=NULL,ylim=NULL,main=NULL,
                    rotx=FALSE,roty=FALSE,eti=row.names(co),
                         axislabel=TRUE,col.row="black",cex=0.8,cex.row=0.8,
-                        all.point=TRUE,cframe=1.2,cex.global=1,infaxes="out")
+                        all.point=TRUE,cframe=1.2,cex.global=1,infaxes="out",asp=1)
 }
 \arguments{
   \item{co}{matrix or data.frame with coordinates}
@@ -34,6 +34,7 @@ plotfp(co,x=1,y=2,eig=NULL,cal=NULL,ucal=0,xlim=NULL,ylim=NULL,main=NULL,
   \item{infaxes}{place to put the axes information: "out","in","no". Default infaxes="out".
     If infaxes="out" the graphic is similar to \code{FactoMineR} graphics, otherwise the style
     is similar to the one in \code{ade4}, without axes information when infaxes="no"}
+ \item{asp}{the y/x aspect ratio}
 }
 \details{
   Plot the selected factorial plane. 

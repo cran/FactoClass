@@ -1,6 +1,6 @@
 stableclus= function(dudi,part,k.clust,ff.clus=NULL,bplot=TRUE,kmns=FALSE) 
 {
-    if(k.clust<2 || part<2) {stop("Number of partitions #Condicionales a los requisitos de la función
+    if(k.clust<2 || part<2) {stop("Number of partitions #Condicionales a los requisitos de la funcion
         and classes must be more than 2")
     }
     if((k.clust^part)>100000) {stop("Please select 
@@ -19,23 +19,23 @@ stableclus= function(dudi,part,k.clust,ff.clus=NULL,bplot=TRUE,kmns=FALSE)
     i=ncol(A)-1
     c=c(1:k.clust)
     k=k.clust
-    A[,part]=rep(c,cont)   #Construcción de la matriz 
-    while(cont>1){          #que guarda la infromación 
-        t=c(rep(k.clust,k)) #de todos las clasificaciones                                    
-        c=rep(c,t)          #posibles para un individuo dado
+    A[,part]=rep(c,cont)   #build up the matrix 
+    while(cont>1){          #to save information 
+        t=c(rep(k.clust,k)) #of the all classifications                                    
+        c=rep(c,t)          #of the one individual
         cont=cont/k.clust
         A[,i]=rep(c,cont)
         i=i-1
         k=k.clust*k
     }
     ID=c(1:m)
-    cluster=matrix(c(rep(0,n*part)),ncol=part)                 #Aqui se guarda la información
-    for (i in 1:part) {                                        #de la clasificación, en cada una
+    cluster=matrix(c(rep(0,n*part)),ncol=part)                 #Aqui se guarda la informacion
+    for (i in 1:part) {                                        #de la clasificacion, en cada una
         kmeans=as.vector(kmeansW(x=obj.clasf,centers=k.clust,  #de las particiones, de todos los 
         weight=pesos)$cluster)                                 #individuos
         cluster[,i]=kmeans  
     }
-    f=c(rep(0,m))              #En esta parte se cuentan el número de individuos que pertenecen a
+    f=c(rep(0,m))              #En esta parte se cuentan el numero de individuos que pertenecen a
     ide=c(rep(0,n))            #cada una de las nuevas clases producto y se guardan estas frecuencias
     for (i in 1:m){
         for(j in 1:n){
@@ -77,11 +77,11 @@ stableclus= function(dudi,part,k.clust,ff.clus=NULL,bplot=TRUE,kmns=FALSE)
             if(ide[j] != IDotff[i]){val[j]=val[j]+1}
         }   
     }         
-    Reafct=obj.clasf[val==ff.clus,]            #Finalmente se agregan los demás individuos
-    ide3=ide2[val==ff.clus]                    #por reafectación a las clases definitivas
+    Reafct=obj.clasf[val==ff.clus,]            #Finalmente se agregan los demas individuos
+    ide3=ide2[val==ff.clus]                    #por reafectacion a las clases definitivas
     n.reafct=nrow(Reafct)                      #para esto se calculan las distancias a cada uno
     fdist=matrix(0,ncol=ff.clus,nrow=n.reafct) #de los centros de gravedad para cada individuo y se clasifica según
-    for (i in 1:ff.clus){                      #la distancia mínima
+    for (i in 1:ff.clus){                      #la distancia minima
         dist=(Reafct-matrix(C.grav[i,],nrow=n.reafct,ncol=nf,byrow=TRUE))^2
         fdist[,i]=as.vector(sqrt(tapply(dist,row(dist),sum)))
     } 

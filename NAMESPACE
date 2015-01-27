@@ -1,15 +1,32 @@
-# Remove the previous line if you edit this file
-
+#####################################
+##              Load DLL           ##
+#####################################
 useDynLib(FactoClass)
 
-# Export all names
-exportPattern(".")
+#####################################
+##            S3 methods           ##
+#####################################
+S3method("print","FactoClass")
+S3method("print","FactoClass.tex")
+S3method("plot","dudi")
 
 
+#####################################
+##               Import            ##
+#####################################
 # Import all packages listed as Imports or Depends
 import(
   ade4,
   xtable
 )
+
+
+#####################################
+##               Export            ##
+#####################################
+# Export all names
+exportPattern(".")
+
+
 
 

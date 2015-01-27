@@ -22,7 +22,7 @@
 plotfp <- function(co,x=1,y=2,eig=NULL,cal=NULL,ucal=0,xlim=NULL,ylim=NULL,main=NULL,
                    rotx=FALSE,roty=FALSE,eti=row.names(co),
                         axislabel=TRUE,col.row="black",cex=0.8,cex.row=0.8,
-                        all.point=TRUE,cframe=1.2,cex.global=1,infaxes="out")
+                        all.point=TRUE,cframe=1.2,cex.global=1,infaxes="out",asp=1)
 {
 if (!is.null(eig))
   {
@@ -61,7 +61,7 @@ if (ucal>0) eti <- row.names(subset(co,(abs(cal[,x])+abs(cal[,y]))>ucal*100))
             on.exit(par(opar))      # quita los márgenes
             par(mar = c(0.1, 0.1, 0.1, 0.1)) # externos
 
-        plot.default(0, 0, type = "n", asp = 1, xlab = "", ylab = "", 
+        plot.default(0, 0, type = "n", asp = asp, xlab = "", ylab = "", 
         xaxt = "n", yaxt = "n", xlim = xlim, ylim = ylim, xaxs = "i", 
         yaxs = "i", frame.plot = TRUE)
           sutil.grid(cex)
@@ -77,7 +77,7 @@ if (ucal>0) eti <- row.names(subset(co,(abs(cal[,x])+abs(cal[,y]))>ucal*100))
     if (infaxes=="out")
       { 
 	plot(0, 0, main = main, xlab = xlabel,ylab = ylabel, 
-               xlim = xlim, ylim = ylim, col = "white", asp=1, cex=cex,
+               xlim = xlim, ylim = ylim, col = "white", asp=asp, cex=cex,
                cex.lab=cex.lab,cex.axis=cex.axis,cex.main=cex.main,las=1)
 
           sutil.grid(cex,FALSE)

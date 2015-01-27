@@ -29,8 +29,7 @@ plot.dudi <- function(x,ex=1,ey=2,xlim=NULL,ylim=NULL,main=NULL,rotx=FALSE,roty=
                         col.row="black",col.col="blue",cex=0.8,cex.row=0.8,cex.col=0.8,
                         all.point=TRUE,Trow=TRUE,Tcol=TRUE,cframe=1.2,ucal=0,
                 cex.global=1,infaxes="out",...)
-{
-  library(ade4)     
+{   
    dudi <- x
    if (!inherits(dudi, "dudi"))  stop("Object of class  'dudi' expectes")
    x <- ex
