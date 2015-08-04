@@ -7,14 +7,17 @@ These variables can be
 quantitative, qualitative or frequencies.
 }
 \usage{
-cluster.carac( tabla , clase , tipo.v="d" , v.lim = 2 )
+cluster.carac( tabla,class,tipo.v="d",v.lim= 2,dn=3,dm=3)
 }
 \arguments{
   \item{tabla}{object data.frame with variables of characterization, the variables must be
                of a single type (quantitative, qualitative or frequencies)}
-  \item{clase}{vector that determines the partition of the table}
+  \item{class}{vector that determines the partition of the table}
   \item{tipo.v}{type of variables: quantitative("continuas"), qualitative ("nominales") or frequencies("frecuencia")  }
   \item{v.lim}{test value to show the variable or category like characteristic.}
+   \item{dn}{number of decimal digits for the p and test values.}
+    \item{dm}{number of decimal digits for the means.}
+
 }
 \details{
  For nominal or frecuency variables it compares the percentage of the categories within 
@@ -44,13 +47,13 @@ cluster.carac(BD.act,BD.function,"ca",2.0)  #  nominal variables
 
 data(iris)
 iris.act <- Fac.Num(iris)$numeric
-clase <- Fac.Num(iris)$factor
-cluster.carac(iris.act,clase,"co",2.0)  #  continuous variables
+class <- Fac.Num(iris)$factor
+cluster.carac(iris.act,class,"co",2.0)  #  continuous variables
 
 # frequency variables
 data(BreedsDogs)
 attach(BreedsDogs)
-weig<-table(FUNc,WEIG)
+weig<-table(FUNC,WEIG)
 weig<-data.frame(weig[,1],weig[,2],weig[,3])
 cluster.carac(weig,  row.names(weig), "fr", 2) # frequency variables
 detach(BreedsDogs)

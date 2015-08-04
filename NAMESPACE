@@ -20,6 +20,12 @@ import(
   xtable
 )
 
+  importFrom("grDevices", "dev.new")
+  importFrom("graphics", "abline", "barplot", "par", "plot",
+             "plot.default", "points", "strheight", "strwidth", "text")
+  importFrom("stats", "as.dist", "cutree", "dhyper", "dist", "hclust",
+             "phyper", "pnorm", "qnorm", "rect.hclust", "var")
+
 
 #####################################
 ##               Export            ##

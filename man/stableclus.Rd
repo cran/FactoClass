@@ -34,7 +34,6 @@ Lebart, L. (2015), 'DtmVic: Data and Text Mining - Visualization, Inference, Cla
 
 Lebart, L., Morineau, A., Lambert, T. and Pleuvret, P. (1999), \emph{SPAD}. Systéme Pour L'Analyse des Donées,
 Paris.
- \url{http://www.spad.eu}
 
 Lebart, L., Piron, M. and Morineau, A. (2006), Statisitique exploratoire multidimensionnelle. Visualisation
 et inférence en fouilles de données, 4 edn, Dunod, Paris.

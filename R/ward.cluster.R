@@ -38,7 +38,7 @@ distW <- distaM^2 * outer(peso,peso,"fw")   # Matriz inicial en metodo de Ward
 distW <- as.dist(distW)             # Matriz inicial en metodo de Ward tipo dist
 
 
-HW    <- hclust(distW, method="ward", members=peso)
+HW    <- hclust(distW, method="ward.D", members=peso)
 
 #-------------------
 
