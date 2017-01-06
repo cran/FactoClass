@@ -7,7 +7,7 @@ These variables can be
 quantitative, qualitative or frequencies.
 }
 \usage{
-cluster.carac( tabla,class,tipo.v="d",v.lim= 2,dn=3,dm=3)
+cluster.carac( tabla,class,tipo.v="d",v.lim= 2,dn=3,dm=3,neg=TRUE)
 }
 \arguments{
   \item{tabla}{object data.frame with variables of characterization, the variables must be
@@ -17,7 +17,7 @@ cluster.carac( tabla,class,tipo.v="d",v.lim= 2,dn=3,dm=3)
   \item{v.lim}{test value to show the variable or category like characteristic.}
    \item{dn}{number of decimal digits for the p and test values.}
     \item{dm}{number of decimal digits for the means.}
-
+\item{neg}{if neg=TRUE, the variables or categories with negative test values are showed.}
 }
 \details{
  For nominal or frecuency variables it compares the percentage of the categories within 

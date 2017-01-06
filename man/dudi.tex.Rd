@@ -44,7 +44,7 @@ A file is wrote in the work directory (\code{job.txt}) with the following tables
 }
 }
 \author{
-Campo Elías PARDO \email{cepardot@unal.edu.co} }
+Campo Elias PARDO \email{cepardot@unal.edu.co} }
 \examples{
 data(ardeche)
 coa1 <- dudi.coa(ardeche$tab, scann = FALSE, nf = 4)

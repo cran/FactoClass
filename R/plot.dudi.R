@@ -1,28 +1,29 @@
 #---------------------------------------------------------------------------------------------
-# gráfica de un plano factorial
-# Campo Elías Pardo
+# grafica de un plano factorial
+# Campo Elias Pardo
 # Octubre 11-06, modificada enero 17/07
 # requiere ade4
-#PARAMETROS (entre paréntesis valores por defecto)
+# 04-01-2017 modify by change of inertia.dudi of ade4
+#PARAMETROS (entre parentesis valores por defecto)
 #   dudi es un objeto dudi (coa,acm,fca)
 #   x,y ejes a graficar (1,2)
 #   roweti: filas a etiquetar (todas)
 #   coleti: columnas a etiquetar (todas)
-#   main: título de la gráfica (NULL)
+#   main: t?tulo de la gr?fica (NULL)
 #   axislabel:
 #   col.row: color para las filas (black)
 #     col.col: color para las colulmnas (blue)
 #     cex (0.8)
 #   cex.row: escala para etiquetas de filas (0.8)
 #   cex.col: escala para etiquetas de columnas (0.8)
-#     all.point: cierto para graficar todos los puntos aunque no estén etiquetados (TRUE)
+#     all.point: cierto para graficar todos los puntos aunque no est?n etiquetados (TRUE)
 #     Trow: cierto para graficar filas (TRUE)
 #   Tcol: cierto para graficar columnas (TRUE)
-#   cframe: aumento de los límites de la gráfica (1.2)
-#   ucal: umbral (%) de calidad de representación (0), se etiquetan puntos por encima
+#   cframe: aumento de los l?mites de la gr?fica (1.2)
+#   ucal: umbral (%) de calidad de representaci?n (0), se etiquetan puntos por encima
 #     del umbral en el plano
 #   cex.global: factor de escala para todas las etiquetas
-#     infaxes: lugar para imprimir información de ejes: "out","in","no" ("out")
+#     infaxes: lugar para imprimir informaci?n de ejes: "out","in","no" ("out")
 #---------------------------------------------------------------------------------------------
 plot.dudi <- function(x,ex=1,ey=2,xlim=NULL,ylim=NULL,main=NULL,rotx=FALSE,roty=FALSE,roweti=row.names(dudi$li),
                         coleti=row.names(dudi$co),axislabel=TRUE,
@@ -34,13 +35,13 @@ plot.dudi <- function(x,ex=1,ey=2,xlim=NULL,ylim=NULL,main=NULL,rotx=FALSE,roty=
    if (!inherits(dudi, "dudi"))  stop("Object of class  'dudi' expectes")
    x <- ex
    y <- ey
-# rotación de ejes
+# rotaci?n de ejes
 if (rotx) rotx=-1 else rotx=1
 if (roty) roty=-1 else roty=1
-# selección de puntos por umbral de calidad de representación en el plano
+# selecci?n de puntos por umbral de calidad de representaci?n en el plano
 if (ucal>0){
-    cosfil <- inertia.dudi(dudi,TRUE)$row.rel
-    coscol <- inertia.dudi(dudi,,TRUE)$col.rel
+    cosfil <- inertia(dudi,TRUE)$row.rel
+    coscol <- inertia(dudi,,TRUE)$col.rel
       roweti <- row.names(subset(dudi$li,(abs(cosfil[,x])+abs(cosfil[,y]))>ucal*100))
       coleti <- row.names(subset(dudi$co,(abs(coscol[,x])+abs(coscol[,y]))>ucal*100))   
     }
@@ -67,7 +68,7 @@ if (ucal>0){
     # estilo ade4
     if (infaxes != "out"){
         opar <- par(mar = par("mar")) # tomado de s.label de ade4
-            on.exit(par(opar))      # quita los márgenes
+            on.exit(par(opar))      # quita los m?rgenes
             par(mar = c(0.1, 0.1, 0.1, 0.1)) # externos
 
         plot.default(0, 0, type = "n", asp = 1, xlab = "", ylab = "", 

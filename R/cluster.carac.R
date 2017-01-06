@@ -1,10 +1,12 @@
 ###################################################################################################
 ###                                                                                                            
-### FUNCION PARA CARACTERIZACION DE VARIABLES EN CLUSTER  - INGLÉS                                             
-### Última revisión: julio 22/15                                                                   
+### FUNCION PARA CARACTERIZACION DE VARIABLES EN CLUSTER  - INGLES                                             
+### ultima revision: 04-01-2017
+### Modificado por Campo Elias Pardo, se agrega parametro para reportar solo caracterizaciones
+### positivas#
 ### Elaborado por: Pedro Cesar del Campo Neira     
-###    Revisado por: Campo Elías Pardo                                                                         
-###    Traducción de mensajes al inglés Campo Elías Pardo
+###    Revisado por: Campo Elias Pardo                                                                         
+###    Traduccion de mensajes al ingles Campo Elias Pardo
 ###    Correcciones: Mauricio Sadinle                                                               
 ###    Universidad Nacional de Colombia                                                                        
 ###                                                                                                            
@@ -17,7 +19,7 @@
 ###                                                                                                            
 ###################################################################################################
 
-cluster.carac<-function(tabla,class,tipo.v="d",v.lim=2,dn=3,dm=3){
+cluster.carac<-function(tabla,class,tipo.v="d",v.lim=2,dn=3,dm=3,neg=TRUE){
 
     if (!inherits(tabla, "data.frame")) 
         stop("The first argument must be an object of class data.frame") # control de objeto
@@ -33,7 +35,7 @@ cluster.carac<-function(tabla,class,tipo.v="d",v.lim=2,dn=3,dm=3){
   nj      <- apply ( acm.disjonctif(tabla) , 2 ,sum ) ##   cantidad de individuos mod_j
   n       <- dim(tabla)[1]                            ##   cantidad de individuos
   # --------------------------------------------------------------------------------------------------
-  # función interno
+  # funcion interno
   interno <- function(c.tabla)
   {     ##  Funcion para procesar en un solo cluster_k
              if(class(c.tabla)=="factor") c.tabla <- as.data.frame(c.tabla)  # Mod. Mauricio                        
@@ -64,7 +66,8 @@ cluster.carac<-function(tabla,class,tipo.v="d",v.lim=2,dn=3,dm=3){
              Class.Cat=round(clas.mod,1), Cat.Class=round(mod.clas,1),                           
              Global=round(Global,1), Weight = nj)                                                    
              rownames(SALIDA) <- rownames(data.frame(nj))                              
-             SALIDA <- subset(SALIDA, abs(V.test) >= v.lim)                                     
+             SALIDA <- subset(SALIDA, abs(V.test) >= v.lim) 
+             if (neg==FALSE) subset(SALIDA, V.test >= v.lim)
              SALIDA <- SALIDA[order(SALIDA$Test.Value, decreasing = TRUE),]                
              return(SALIDA)
              }
@@ -93,12 +96,16 @@ cluster.carac<-function(tabla,class,tipo.v="d",v.lim=2,dn=3,dm=3){
              
              ##-------------------------------
              SALIDA   <- data.frame(Test.Value=round(V.test,dn),Class.Mean=round(mean.Xk,dm),Frequency=nk,Global.Mean=round(mean.X,dm))      
-             ## SALIDA
+  
+                        ## SALIDA
  
              rownames(SALIDA)<-names(c.tabla)                   ## etiquetas variables 
              SALIDA<-SALIDA[-1,]                                ## Eliminacion variable falsa
              SALIDA <- subset(SALIDA, abs(SALIDA$Test.Value) >= v.lim )    
+             if(neg==FALSE) SALIDA <- subset(SALIDA, SALIDA$Test.Value >= v.lim )    
+             
                                                                 ## salida de no representativos
+             
              SALIDA <- SALIDA[order(SALIDA$Test.Value , decreasing = TRUE),]   ## ordena por V.test
  
              # SALIDA <- round(SALIDA,3)
@@ -110,7 +117,7 @@ cluster.carac<-function(tabla,class,tipo.v="d",v.lim=2,dn=3,dm=3){
 
  }# Fin variables continuas    
 
-# modificación de Campo Elías Pardo
+# modificacion de Campo Elias Pardo
 
  if(metodo==5 ){
  
@@ -127,7 +134,7 @@ cluster.carac<-function(tabla,class,tipo.v="d",v.lim=2,dn=3,dm=3){
              mod.clas <- 100*njk/nk                   ##  % de mod_j en cluster_k 
              Global   <- 100*nj/n                     ##  % de mod_j en n 
              
-             # se coloca la de variables categóricas CEPT
+             # se coloca la de variables categoricas CEPT
              
              ##  probabilidad hipergeometrica y valor test
              # programado por CEPT julio 2015
@@ -146,7 +153,9 @@ cluster.carac<-function(tabla,class,tipo.v="d",v.lim=2,dn=3,dm=3){
              Class.Cat=round(clas.mod,1), Cat.Class=round(mod.clas,1),                           
              Global=round(Global,1), Weight = nj)                                                    
              rownames(SALIDA) <- rownames(data.frame(nj))                              
-             SALIDA <- subset(SALIDA,  abs(SALIDA$Test.Value) >= v.lim)                                     
+             SALIDA <- subset(SALIDA,  abs(SALIDA$Test.Value) >= v.lim) 
+             if (neg==FALSE) SALIDA <- subset(SALIDA,  SALIDA$Test.Value >= v.lim)                                     
+             
              SALIDA <- SALIDA[order(SALIDA$Test.Value, decreasing = TRUE),]                
              return(SALIDA)                                                                        
              }

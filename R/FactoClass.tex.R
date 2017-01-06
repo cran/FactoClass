@@ -3,9 +3,9 @@
 ##                                                                                       ##
 ##                                                                                       ##
 ##                                                                                       ##
-## Elaborado por: Campo elias Pardo,                                                     ##
-## modificación Pedro Cesar del Campo Neira                                              ##
-##                                                                                       ##
+## Elaborado por: Campo Elias Pardo,                                                     ##
+## modificacion Pedro Cesar del Campo Neira                                              ##
+## 04-01-2017 modify to adapt new version ade4 by PardoCE                                                                                      ##
 ## Universidad Nacional de Colombia                                                      ##
 ##                                                                                       ##
 ## requiere:xtable      library(xtable)                                                  ##
@@ -58,7 +58,7 @@ latexDF <- function( obj , job="latex" ,tit="" ,lab="" ,append=TRUE ,dec=1 ,
 
 
 ###########################################################################################
-## Función que redondea objetos tipo 'data.frame' sin tener encuenta los factores    ##
+## Funcion que redondea objetos tipo 'data.frame' sin tener encuenta los factores    ##
 ##                                                                                   ##
 ##                                           ##
 ##                                           ##
@@ -103,7 +103,7 @@ roundDF <- function(tabla,dec=1)
 ## para observalos en consola                                                            ##
 ##                                                                                   ##
 ## Elaborado por: Campo Elias Pardo,                             ##
-## modificación Pedro Cesar del Campo Neira                          ##
+## modificaci?n Pedro Cesar del Campo Neira                          ##
 ##                                           ##
 ## Universidad Nacional de Colombia                          ##
 ##                                           ##
@@ -114,7 +114,7 @@ roundDF <- function(tabla,dec=1)
 ##            append    := Archivo adicionado o no                   ##
 ##            dec       := Numero de decimales                       ##
 ##            dir       := extension de la carpeta donde desea guardar el archivo tex    ##
-##            p.clust   := (TRUE o FALSE) Opcional para imprimir la clasificación        ##
+##            p.clust   := (TRUE o FALSE) Opcional para imprimir la clasificaci?n        ##
 ##          )                                                                ##
 ##                                           ##
 ###########################################################################################
@@ -130,10 +130,10 @@ FactoClass.tex <- function(FC,job="",append=TRUE, dir = getwd() , p.clust = FALS
 file         <- paste(dir,"/",job,".tex",sep="")
 
 afg          <- FC
-afgI         <- inertia.dudi(afg$dudi,row.inertia=TRUE,col.inertia=TRUE)
-percent      <- diff(afgI$TOT$ratio,1)*100
-percent      <- c(afgI$TOT$ratio[1]*100,percent)
-tvalp        <- cbind(afgI$TOT[,1:2]*1000,percent,subset(afgI$TOT,select=3)*100)
+afgI         <- inertia(afg$dudi,row.inertia=TRUE,col.inertia=TRUE)
+percent      <- diff(afgI$TOT$`cum(%)`,1)
+percent      <- c(afgI$TOT$`cum(%)`[1],percent)
+tvalp        <- cbind(afgI$TOT[,1:2]*1000,percent,subset(afgI$TOT,select=3))
 names(tvalp) <- c("Eigenvalue","CumInertia","Percent","CumPercent")
 
 carac.cate <- NULL

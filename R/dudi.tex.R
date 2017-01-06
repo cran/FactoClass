@@ -1,10 +1,11 @@
 # Marzo 4 2007 se nombra dudi.tex
+# Ene 4 2017 modification to adated new version ade4
 #--------------------------------------------------------------------
-# afg.tex - función para crear tablas en Latex de análisis factoriales
+# afg.tex - funcion para crear tablas en Latex de analisis factoriales
 # C.E. Pardo Julio/04
 # requiere paquete xtable
 # entra afc de tipo "dudi",
-# job = título del trabajo para las tablas
+# job = t?tulo del trabajo para las tablas
 # append
 # se imprimen los resultados en consola
 # se escribe en el archivo job.tex
@@ -31,10 +32,10 @@ latex <- function(obj,job="latex",tit="",lab="",append=TRUE,dec=1)
 #---------------------------------------------------------------------
 dudi.tex <- function(dudi,job="",aidsC=TRUE,aidsR=TRUE,append=TRUE){
 afg <- dudi
-afgI <- inertia.dudi(afg,row.inertia=TRUE,col.inertia=TRUE)
-percent <- diff(afgI$TOT$ratio,1)*100
-percent <- c(afgI$TOT$ratio[1]*100,percent)
-tvalp <-cbind(afgI$TOT[,1:2]*1000,percent,subset(afgI$TOT,select=3)*100)
+afgI <- inertia(afg,row.inertia=TRUE,col.inertia=TRUE)
+percent <- diff(afgI$TOT$`cum(%)`,1)
+percent <- c(afgI$TOT$`cum(%)`[1],percent)
+tvalp <-cbind(afgI$TOT[,1:2]*1000,percent,subset(afgI$TOT,select=3))
 names(tvalp) <- c("Eigenvalue","CumInertia","Percent","CumPercent")
 latex(tvalp,job,"Eigenvalues * 1000","eigenvalues",FALSE,dec=1)
 latex(afg$c1,job,"Eigenvectors","eigenvectors",dec=4)
