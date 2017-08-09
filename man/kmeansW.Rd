@@ -1,5 +1,6 @@
 \name{kmeansW}
 \alias{kmeansW}
+\alias{kmnsw}
 \title{K-means with Weights of the Elements}
 \description{It is a modification of kmeans Hartigan-Wong algorithm to consider the weight of the elements 
 to classify.}
@@ -33,7 +34,7 @@ ASA136 The K-Means Algorithm.
  \url{http://people.sc.fsu.edu/~burkardt/cpp_src/asa136/asa136.html}
 }
 \author{
-Camilo José Torres \email{cjtorresj@unal.edu.co},  Campo Elias Pardo \email{cepardot@unal.edu.co}
+Camilo Jos? Torres \email{cjtorresj@unal.edu.co},  Campo Elias Pardo \email{cepardot@unal.edu.co}
 }
 
 \examples{

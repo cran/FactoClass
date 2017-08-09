@@ -1,7 +1,7 @@
 #####################################
 ##              Load DLL           ##
 #####################################
-useDynLib(FactoClass)
+useDynLib(FactoClass,.registration=TRUE)
 
 #####################################
 ##            S3 methods           ##
@@ -17,21 +17,22 @@ S3method("plot","dudi")
 # Import all packages listed as Imports or Depends
 import(
   ade4,
-  xtable
+  xtable,
+  scatterplot3d,
+  KernSmooth
 )
 
-  importFrom("grDevices", "dev.new")
-  importFrom("graphics", "abline", "barplot", "par", "plot",
-             "plot.default", "points", "strheight", "strwidth", "text")
+  importFrom("grDevices", "dev.new","rainbow")
+  importFrom("graphics", "abline", "barplot", "par", "plot","contour", "lines",
+             "plot.default", "points","segments", "strheight", "strwidth", "text")
   importFrom("stats", "as.dist", "cutree", "dhyper", "dist", "hclust",
-             "phyper", "pnorm", "qnorm", "rect.hclust", "var")
-
-
+             "phyper", "pnorm", "qnorm", "rect.hclust", "var","chisq.test","density")
 #####################################
 ##               Export            ##
 #####################################
 # Export all names
 exportPattern(".")
+
 
 
 

@@ -20,58 +20,49 @@
 ###################################################################################################
 
 cluster.carac<-function(tabla,class,tipo.v="d",v.lim=2,dn=3,dm=3,neg=TRUE){
-
-    if (!inherits(tabla, "data.frame")) 
-        stop("The first argument must be an object of class data.frame") # control de objeto
- metodo <- pmatch(tipo.v , c("categoricas","nominales","discretas","continuas","frecuencia") )
-
- if(is.na(metodo)==TRUE)
- {return(cat("Undefined type of variables\n\n"))}
-
- if(metodo==1 || metodo==2 || metodo==3 ){
- 
+  if (!inherits(tabla, "data.frame")) 
+      stop("The first argument must be an object of class data.frame") # control de objeto
+  metodo <- pmatch(tipo.v , c("categoricas","nominales","discretas","continuas","frecuencia") )
+  if(is.na(metodo)==TRUE)
+      {return(cat("Undefined type of variables\n\n"))}
+  if(metodo==1 || metodo==2 || metodo==3 ){
   #  VARIABLES CATEGORICAS , NOMINALES O DISCRETAS
-  
-  nj      <- apply ( acm.disjonctif(tabla) , 2 ,sum ) ##   cantidad de individuos mod_j
-  n       <- dim(tabla)[1]                            ##   cantidad de individuos
-  # --------------------------------------------------------------------------------------------------
-  # funcion interno
-  interno <- function(c.tabla)
-  {     ##  Funcion para procesar en un solo cluster_k
-             if(class(c.tabla)=="factor") c.tabla <- as.data.frame(c.tabla)  # Mod. Mauricio                        
-             
-             disy     <- acm.disjonctif(c.tabla)      ##  Tabla disyuntiva completa en cluster_k
-             nk       <- dim(disy)[1]                 ##  cantidad de individuos cluster_k   
-             njk      <- apply(disy,2,sum)            ##  cantidad de individuos mod_j cluster_k
-  
-             #  Frecuencias
-              
-             clas.mod <- 100*njk/nj                   ##  % de cluster_k en mod_j
-             mod.clas <- 100*njk/nk                   ##  % de mod_j en cluster_k 
-             Global   <- 100*nj/n                     ##  % de mod_j en n 
-
-             ##  probabilidad hipergeometrica y valor test
-             # programado por CEPT julio 2015
-
-             prob <- matrix(NA, length(nj), 1) # 0.5 -> NA CEPT
-             
-             
-             prob <- phyper(njk, nj, n - nj, nk)
-             prob[mod.clas>=Global]<-phyper(njk-1,nj,n-nj,nk,lower.tail=FALSE)[mod.clas>Global]
-             #valores test
-             V.test <- qnorm(prob/2) 
-             V.test[mod.clas>Global]<-qnorm(prob/2,lower.tail=FALSE)[mod.clas>=Global] 
-             
-             SALIDA <- data.frame(Test.Value=round(V.test,dn), p.Value=round(prob,dn), 
-             Class.Cat=round(clas.mod,1), Cat.Class=round(mod.clas,1),                           
-             Global=round(Global,1), Weight = nj)                                                    
-             rownames(SALIDA) <- rownames(data.frame(nj))                              
-             SALIDA <- subset(SALIDA, abs(V.test) >= v.lim) 
-             if (neg==FALSE) subset(SALIDA, V.test >= v.lim)
-             SALIDA <- SALIDA[order(SALIDA$Test.Value, decreasing = TRUE),]                
-             return(SALIDA)
-             }
-        return(by(tabla, class, interno))
+    nj      <- apply ( acm.disjonctif(tabla) , 2 ,sum ) ##   cantidad de individuos mod_j
+    n       <- dim(tabla)[1]                            ##   cantidad de individuos
+    # --------------------------------------------------------------------------------------------------
+    # funcion interno
+    interno <- function(c.tabla)
+      {##  Funcion para procesar en un solo cluster_k
+      if(class(c.tabla)=="factor") c.tabla <- as.data.frame(c.tabla)  # Mod. Mauricio                        
+      disy <- acm.disjonctif(c.tabla) ##  Tabla disyuntiva completa en cluster_k
+      nk <- dim(disy)[1]              ##  cantidad de individuos cluster_k   
+      njk <- apply(disy,2,sum)        ##  cantidad de individuos mod_j cluster_k
+      #  Frecuencias
+      clas.mod <- 100*njk/nj                   ##  % de cluster_k en mod_j
+      mod.clas <- 100*njk/nk                   ##  % de mod_j en cluster_k 
+      Global   <- 100*nj/n                     ##  % de mod_j en n 
+      ##  probabilidad hipergeometrica y valor test
+      # programado por CEPT julio 2015
+      prob <- matrix(NA, length(nj), 1) # 0.5 -> NA CEPT
+      prob <- phyper(njk, nj, n - nj, nk)
+      prob[mod.clas>=Global]<-phyper(njk-1,nj,n-nj,nk,lower.tail=FALSE)[mod.clas>=Global]
+      #valores test
+      V.test <- qnorm(prob/2) 
+      # (28jul2017) se cambio  V.test[mod.clas>Global] por: 
+      V.test[mod.clas>=Global]<-qnorm(prob/2,lower.tail=FALSE)[mod.clas>=Global] 
+      SALIDA <- data.frame(Test.Value=round(V.test,dn), 
+                p.Value=round(prob,dn),    
+                Class.Cat=round(clas.mod,1), Cat.Class=round(mod.clas,1),                           
+                Global=round(Global,1), Weight = nj)                                                    
+      rownames(SALIDA) <- rownames(data.frame(nj))                              
+      SALIDA <- subset(SALIDA, abs(V.test) >= v.lim) 
+      if (neg==FALSE) subset(SALIDA, V.test >= v.lim)
+      SALIDA <- SALIDA[order(SALIDA$Test.Value, decreasing = TRUE),]                
+      return(SALIDA)
+    } # termina funcion salida
+    # chi cuadrado, phi, valores test por variables
+    
+  return(by(tabla, class, interno))
     }
 # Fin variables discretas 
        

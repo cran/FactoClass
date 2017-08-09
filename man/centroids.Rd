@@ -14,6 +14,7 @@
 Object of class \code{list} with the following:
 \item{centroids}{class centroids}
 \item{weights}{class weights} 
+\item{cr}{correlation ratios} 
 }
 \author{Campo Elias Pardo \email{cepardot@unal.edu.co}
 }
