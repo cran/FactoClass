@@ -1,4 +1,4 @@
-9e48732ef616cd0680ea21a49e4c89f7 *DESCRIPTION
+b84a16cc0eaa4ad792d9545e8a7d2da4 *DESCRIPTION
 b4af1ecef7114379ad9aa59fd94f433f *NAMESPACE
 fc4dc5814ec5e60899dacf163e4a16e5 *R/Fac.Num.R
 b3643054909cef5b8e99e1244677d46c *R/FactoClass.R
@@ -16,7 +16,7 @@ a2b6951d891277a612eac177948b2e00 *R/plotFactoClass.R
 ac04b3fece520f0a02afebdb2743765a *R/plotfp.R
 bc27fb82e22c0d636b683b185238b8dd *R/plotpairs.R
 da6eb1fc8729e48f689ceef93529ad09 *R/print.FactoClass.R
-1fe5e3a7619ef69cdc3b0437c982f1bd *R/stableclus.R
+bb2ecf01c90d3695806a96d432754235 *R/stableclus.R
 b23f26be24e97c152cd6fa0101116610 *R/supqual.R
 d82d2a1872d7686e5ee82918f6e46b5a *R/ward.cluster.R
 e3897e40ae9f72d2a1dc02a4c61c2583 *data/Bogota.rda
@@ -51,7 +51,7 @@ b9b8e5079d085544d3b1c12465b22295 *man/plot.dudi.Rd
 59d471d5faed6458ecb49e83003d7f90 *man/plotct.Rd
 b3383bd0718867c2d55b313e29122a45 *man/plotfp.Rd
 66ad7aa4408276e32d97d7298027f53d *man/plotpairs.Rd
-6a9fb95ad0f23a30bc7ea50f697c206c *man/stableclus.Rd
+435ec4313f43478e444da39191dfbf0b *man/stableclus.Rd
 1bd59011d24e3114d78ed624c66e9f9b *man/supqual.Rd
 ed90d9ea1395a0eaceb96f1d4e8e8ed8 *man/ward.cluster.Rd
 79df0f29cd47114efd07045520f2bc6e *src/FactoClass_init.c

@@ -9,7 +9,7 @@ stableclus= function(dudi,part,k.clust,ff.clus=NULL,bplot=TRUE,kmns=FALSE)
     if(class(dudi)[2]!="dudi"){stop("Not a valid dudi object")
     } 
 
-    nf=dudi$nf                    #Extracción de los objetos necesarios del
+    nf=dudi$nf                    #Extracci?n de los objetos necesarios del
     obj.clasf=dudi$li             #objeto dudi
     pesos=dudi$lw
     n=nrow(obj.clasf)  
@@ -48,7 +48,7 @@ stableclus= function(dudi,part,k.clust,ff.clus=NULL,bplot=TRUE,kmns=FALSE)
     ide2=c(1:n)
     l=order(f,decreasing=TRUE) #Se procede a ordenar las frecuencias y     
     fo=sort(f,decreasing=TRUE) #se presentan en un diagrama de barras 
-    fot=fo[fo>0]               #para que el usuario decida el número de clases
+    fot=fo[fo>0]               #para que el usuario decida el n?mero de clases
     IDo=ID[l]                  #finales
     IDot=IDo[fo>0]
     if(bplot){
@@ -80,7 +80,7 @@ stableclus= function(dudi,part,k.clust,ff.clus=NULL,bplot=TRUE,kmns=FALSE)
     Reafct=obj.clasf[val==ff.clus,]            #Finalmente se agregan los demas individuos
     ide3=ide2[val==ff.clus]                    #por reafectacion a las clases definitivas
     n.reafct=nrow(Reafct)                      #para esto se calculan las distancias a cada uno
-    fdist=matrix(0,ncol=ff.clus,nrow=n.reafct) #de los centros de gravedad para cada individuo y se clasifica según
+    fdist=matrix(0,ncol=ff.clus,nrow=n.reafct) #de los centros de gravedad para cada individuo y se clasifica segun
     for (i in 1:ff.clus){                      #la distancia minima
         dist=(Reafct-matrix(C.grav[i,],nrow=n.reafct,ncol=nf,byrow=TRUE))^2
         fdist[,i]=as.vector(sqrt(tapply(dist,row(dist),sum)))

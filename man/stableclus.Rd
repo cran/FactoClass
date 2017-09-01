@@ -25,18 +25,18 @@ object of class \code{stableclus} with the following characteristics:
 \references{ 
 Arias, C. A.; Zarate, D.C. and Pardo C.E. (2009), 'Implementacion del metodo de grupos estables en el paquete FactoClass de R', in: XIX Simposio Colombiano de Estadistica.
 Estadisticas Oficiales
-Medellín Colombia, Julio 16 al 20 de 2009
+Medell?n Colombia, Julio 16 al 20 de 2009
 Universidad Nacional de Colombia. Bogota.
 \url{http://www.docentes.unal.edu.co/cepardot/docs/SimposiosEstadistica/AriasZaratePardo09.pdf}
 
 Lebart, L. (2015), 'DtmVic: Data and Text Mining - Visualization, Inference, Classification. Exploratory statistical processing of complex data sets comprising both numerical and textual data.', Web.
  \url{http://www.dtmvic.com/}
 
-Lebart, L., Morineau, A., Lambert, T. and Pleuvret, P. (1999), \emph{SPAD}. Systéme Pour L'Analyse des Donées,
+Lebart, L., Morineau, A., Lambert, T. and Pleuvret, P. (1999), \emph{SPAD}. Syst?me Pour L'Analyse des Don?es,
 Paris.
 
 Lebart, L., Piron, M. and Morineau, A. (2006), Statisitique exploratoire multidimensionnelle. Visualisation
-et inférence en fouilles de données, 4 edn, Dunod, Paris.
+et inf?rence en fouilles de donn?es, 4 edn, Dunod, Paris.
 }
 \author{
 Carlos Andres Arias \email{caariasr@unal.edu.co},
@@ -48,7 +48,7 @@ Campo Elias Pardo \email{cepardot@unal.edu.co}
  data(ColorAdjective)
  FCcol <-FactoClass(ColorAdjective, dudi.coa,nf=6,nfcl=10,k.clust=7,scanFC = FALSE)
  acs <- FCcol$dudi
- stableclus(acs,3,3,4,TRUE,TRUE)
+# stableclus(acs,3,3,4,TRUE,TRUE)
 
 }
 \keyword{multivariate}
