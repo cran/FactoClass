@@ -46,8 +46,8 @@ A file is wrote in the work directory (\code{job.txt}) with the following tables
 \author{
 Campo Elias PARDO \email{cepardot@unal.edu.co} }
 \examples{
-data(ardeche)
-coa1 <- dudi.coa(ardeche$tab, scann = FALSE, nf = 4)
-dudi.tex(coa1,job="Ardeche") 
+data(Bogota)
+coa1 <- dudi.coa(Bogota[,2:7], scannf = FALSE)
+dudi.tex(coa1,job="Bogota") 
 }
 \keyword{multivariate}

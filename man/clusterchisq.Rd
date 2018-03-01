@@ -22,8 +22,8 @@ Matrix  with the following columns:
 \author{Campo Elias Pardo \email{cepardot@unal.edu.co}
 }
 \examples{
-data(BreedsDogs)
-round(chisq.carac(BreedsDogs[,-7],BreedsDogs[,7]),3)
-round(chisq.carac(BreedsDogs[,-7],BreedsDogs[,7],decr=FALSE),3)
+data(DogBreeds)
+round(chisq.carac(DogBreeds[,-7],DogBreeds[,7]),3)
+round(chisq.carac(DogBreeds[,-7],DogBreeds[,7],decr=FALSE),3)
 }
 \keyword{multivariate}

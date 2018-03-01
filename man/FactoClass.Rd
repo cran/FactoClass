@@ -97,18 +97,18 @@ FC.col$dudi
 
 
 # Cluster analysis with Multiple Correspondence Analysis
-data(BreedsDogs)
+data(DogBreeds)
 
-BD.act <- BreedsDogs[-7]  # active variables
-BD.ilu <- BreedsDogs[7]   # ilustrative variables
+DB.act <- DogBreeds[-7]  # active variables
+DB.ilu <- DogBreeds[7]   # ilustrative variables
 
-FC.bd <-FactoClass( BD.act, dudi.acm, k.clust = 4,
-                       scanFC = FALSE, dfilu = BD.ilu, nfcl = 10)
+FC.db <-FactoClass( DB.act, dudi.acm, k.clust = 4,
+                       scanFC = FALSE, dfilu = DB.ilu, nfcl = 10)
 
-FC.bd
+FC.db
 
-FC.bd$clus.summ
-FC.bd$indices
+FC.db$clus.summ
+FC.db$indices
 
 }
 \keyword{multivariate}

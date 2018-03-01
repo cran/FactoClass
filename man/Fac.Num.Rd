@@ -22,8 +22,8 @@ Fac.Num(tabla)
 
 \examples{
 
-   data(BreedsDogs)
-   Fac.Num(BreedsDogs)
+   data(DogBreeds)
+   Fac.Num(DogBreeds)
 
    data(iris)
    Fac.Num(iris)

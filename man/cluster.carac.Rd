@@ -39,10 +39,10 @@ multidimensionnelle, Paris.
 }
 \examples{
 
-data(BreedsDogs)
-BD.act <- BreedsDogs[-7]  # active variables
-BD.function <- subset(BreedsDogs,select=7)   
-cluster.carac(BD.act,BD.function,"ca",2.0)  #  nominal variables
+data(DogBreeds)
+DB.act <- DogBreeds[-7]  # active variables
+DB.function <- subset(DogBreeds,select=7)   
+cluster.carac(DB.act,DB.function,"ca",2.0)  #  nominal variables
 
 
 data(iris)
@@ -51,12 +51,12 @@ class <- Fac.Num(iris)$factor
 cluster.carac(iris.act,class,"co",2.0)  #  continuous variables
 
 # frequency variables
-data(BreedsDogs)
-attach(BreedsDogs)
+data(DogBreeds)
+attach(DogBreeds)
 weig<-table(FUNC,WEIG)
 weig<-data.frame(weig[,1],weig[,2],weig[,3])
 cluster.carac(weig,  row.names(weig), "fr", 2) # frequency variables
-detach(BreedsDogs)
+detach(DogBreeds)
 }
 
 \keyword{multivariate}

@@ -17,9 +17,10 @@ S3method("plot","dudi")
 # Import all packages listed as Imports or Depends
 import(
   ade4,
+  ggplot2,  
+  ggrepel,
   xtable,
-  scatterplot3d,
-  KernSmooth
+  scatterplot3d
 )
 
   importFrom("grDevices", "dev.new","rainbow")
@@ -27,6 +28,11 @@ import(
              "plot.default", "points","segments", "strheight", "strwidth", "text")
   importFrom("stats", "as.dist", "cutree", "dhyper", "dist", "hclust",
              "phyper", "pnorm", "qnorm", "rect.hclust", "var","chisq.test","density")
+  importFrom("KernSmooth","bkde2D")
+ # importFrom("ggplot2","ggplot","geom_point","theme_bw","labs", "geom_vline","theme",
+ #            "geom_hline","element_text","unit","aes","xlim","ylim")
+ # importFrom("ggrepel","geom_text_repel")
+             
 #####################################
 ##               Export            ##
 #####################################

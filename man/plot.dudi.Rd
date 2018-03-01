@@ -11,7 +11,7 @@
 			roweti=row.names(dudi$li),coleti=row.names(dudi$co),
 			axislabel=TRUE,col.row="black",col.col="blue",cex=0.8,
 			cex.row=0.8,cex.col=0.8,all.point=TRUE,Trow=TRUE,Tcol=TRUE,
-			cframe=1.2,ucal=0,cex.global=1,infaxes="out",\dots)
+			cframe=1.2,ucal=0,cex.global=1,infaxes="out",gg=FALSE,\dots)
 sutil.grid(cgrid,scale=TRUE)    
 }
 \arguments{
@@ -40,6 +40,7 @@ sutil.grid(cgrid,scale=TRUE)
   \item{infaxes}{place to put the axes information: "out","in","no". Default infaxes="out".
     If infaxes="out" the graphic is similar to \code{FactoMineR} graphics, otherwise the style
     is similar to the one in \code{ade4}, without axes information when infaxes="no"}
+  \item{gg}{If TRUE the version ggplot ggrepel is perfomance. Default TRUE }
   \item{\dots}{further arguments passed to or from other methods}
   \item{cgrid}{internal parameter}
   \item{scale}{internal}  
@@ -53,19 +54,17 @@ sutil.grid(cgrid,scale=TRUE)
   If ucal > 0, the function inertia.dudi is used to calculate the quality of representation 
   on the plane 
 }
-\author{Campo Elias Pardo \email{cepardot@unal.edu.co} 
-
-  \url{http://www.docentes.unal.edu.co/cepardot}
+\author{Campo Elias Pardo \email{cepardot@unal.edu.co} and 
+        Jhonathan Medina  \email{jmedinau@unal.edu.co}
 }
 \examples{
-data(ardeche)
-ca <- dudi.coa(ardeche$tab,scannf=FALSE,nf=4)
+data(Bogota)
+ca <- dudi.coa(Bogota[,2:7],scannf=FALSE,nf=4)
 # FactoMineR style
-plot.dudi(ca,ucal=40,all.point=FALSE,main="SCA of Ardeche, First Factorial Plane")
+plot(ca)
 dev.new()
 # ade4 style
-plot.dudi(ca,ex=3,ey=4,ucal=20,all.point=FALSE,infaxes="in",main="SCA of
-Ardeche, Plane 3-4")
+plot.dudi(ca,ex=3,ey=4,ucal=0.2,all.point=FALSE,infaxes="in",gg=FALSE)
 }
 \keyword{multivariate}
 \keyword{hplot}

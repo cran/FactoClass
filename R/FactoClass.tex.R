@@ -130,7 +130,7 @@ FactoClass.tex <- function(FC,job="",append=TRUE, dir = getwd() , p.clust = FALS
 file         <- paste(dir,"/",job,".tex",sep="")
 
 afg          <- FC
-afgI         <- inertia(afg$dudi,row.inertia=TRUE,col.inertia=TRUE)
+afgI         <- inertia.dudi(afg$dudi,row.inertia=TRUE,col.inertia=TRUE)
 percent      <- diff(afgI$TOT$`cum(%)`,1)
 percent      <- c(afgI$TOT$`cum(%)`[1],percent)
 tvalp        <- cbind(afgI$TOT[,1:2]*1000,percent,subset(afgI$TOT,select=3))

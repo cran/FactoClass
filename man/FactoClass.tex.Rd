@@ -72,13 +72,13 @@ object of class \code{FactoClass.tex} with the following characteristics:
  Pedro Cesar del Campo \email{pcdelcampon@unal.edu.co}, Campo Elias Pardo \email{cepardot@unal.edu.co}
        }
 \examples{
-data(BreedsDogs)
-BD.act <- BreedsDogs[-7]  # active variables
-BD.ilu <- BreedsDogs[7]   # illustrative variables
+data(DogBreeds)
+DB.act <- DogBreeds[-7]  # active variables
+DB.ilu <- DogBreeds[7]   # illustrative variables
 # MCA
-FaCl <- FactoClass( BD.act, dudi.acm,
-                    scanFC = FALSE, dfilu = BD.ilu, nfcl = 10, k.clust = 4 )
-FactoClass.tex(FaCl,job="BreedsDogs1", append=TRUE)
-FactoClass.tex(FaCl,job="BreedsDogs", append=TRUE , p.clust = TRUE)
+FaCl <- FactoClass( DB.act, dudi.acm,
+                    scanFC = FALSE, dfilu = DB.ilu, nfcl = 10, k.clust = 4 )
+FactoClass.tex(FaCl,job="DogBreeds1", append=TRUE)
+# FactoClass.tex(FaCl,job="DogBreeds", append=TRUE , p.clust = TRUE)
 }
 \keyword{multivariate}

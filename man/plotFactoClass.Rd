@@ -14,7 +14,7 @@ plotFactoClass(FC,x=1,y=2,xlim=NULL,ylim=NULL,rotx=FALSE,roty=FALSE,
                 all.point=TRUE,Trow=TRUE,Tcol=TRUE,cframe=1.2,ucal=0,
                 cex.global=1,infaxes="out",
                 nclus=paste("cl", 1:FC$k, sep=""),
-                cex.clu=cex.row,cstar=1 )
+                cex.clu=cex.row,cstar=1,gg=FALSE)
 
 }
 \arguments{
@@ -47,7 +47,7 @@ plotFactoClass(FC,x=1,y=2,xlim=NULL,ylim=NULL,rotx=FALSE,roty=FALSE,
     If infaxes="out" the graphic is similar to \code{FactoMineR} graphics, otherwise the style
     is similar to the one in \code{ade4}, without axes information when infaxes="no"}
   \item{cstar}{length of the rays between the centroids of the classes and their points}  
-
+  \item{gg}{If TRUE the version ggplot ggrepel is perfomance. Default FALSE}
 }
 \details{
    It draws the factorial plane with the clusters. Only for objects \code{FactoClass}
@@ -59,7 +59,7 @@ plotFactoClass(FC,x=1,y=2,xlim=NULL,ylim=NULL,rotx=FALSE,roty=FALSE,
   If ucal > 0, the function inertia.dudi is used to calculate the quality of representation 
   in the plane. 
 }
-\author{ Campo Elías Pardo \email{cepardot@unal.edu.co}
+\author{ Campo Elias Pardo \email{cepardot@unal.edu.co}
          Pedro Cesar del Campo \email{pcdelcampon@unal.edu.co},
    
        }

@@ -32,7 +32,7 @@ latex <- function(obj,job="latex",tit="",lab="",append=TRUE,dec=1)
 #---------------------------------------------------------------------
 dudi.tex <- function(dudi,job="",aidsC=TRUE,aidsR=TRUE,append=TRUE){
 afg <- dudi
-afgI <- inertia(afg,row.inertia=TRUE,col.inertia=TRUE)
+afgI <- inertia.dudi(afg,row.inertia=TRUE,col.inertia=TRUE)
 percent <- diff(afgI$TOT$`cum(%)`,1)
 percent <- c(afgI$TOT$`cum(%)`[1],percent)
 tvalp <-cbind(afgI$TOT[,1:2]*1000,percent,subset(afgI$TOT,select=3))
