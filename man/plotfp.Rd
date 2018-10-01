@@ -6,10 +6,9 @@
  It plots factorial planes from a coordinate table
 }
 \usage{
-plotfp(co,x=1,y=2,eig=NULL,cal=NULL,ucal=0,xlim=NULL,ylim=NULL,main=NULL,
-                   rotx=FALSE,roty=FALSE,eti=row.names(co),
-                        axislabel=TRUE,col.row="black",cex=0.8,cex.row=0.8,
-                        all.point=TRUE,cframe=1.2,cex.global=1,infaxes="out",asp=1)
+plotfp(co,x=1,y=2,eig=NULL,cal=NULL,ucal=0,xlim=NULL,ylim=NULL,main=NULL,rotx=FALSE,
+       roty=FALSE,eti=row.names(co),axislabel=TRUE,col.row="black",cex=0.8,cex.row=0.8,
+       all.point=TRUE,cframe=1.2,cex.global=1,infaxes="out",asp=1,gg=FALSE)
 }
 \arguments{
   \item{co}{matrix or data.frame with coordinates}
@@ -35,6 +34,7 @@ plotfp(co,x=1,y=2,eig=NULL,cal=NULL,ucal=0,xlim=NULL,ylim=NULL,main=NULL,
     If infaxes="out" the graphic is similar to \code{FactoMineR} graphics, otherwise the style
     is similar to the one in \code{ade4}, without axes information when infaxes="no"}
  \item{asp}{the y/x aspect ratio}
+   \item{gg}{If TRUE the version ggplot ggrepel is perfomance. Default FALSE}
 }
 \details{
   Plot the selected factorial plane. 
@@ -44,14 +44,16 @@ plotfp(co,x=1,y=2,eig=NULL,cal=NULL,ucal=0,xlim=NULL,ylim=NULL,main=NULL,
   If ucal > 0, only the points with  the quality of representation 
   on the plane bigger than ucal are pointed
 }
-\author{Campo Elias Pardo \email{cepardot@unal.edu.co} 
-
-  \url{http://www.docentes.unal.edu.co/cepardot}
+\author{Campo Elias Pardo \email{cepardot@unal.edu.co} and 
+        Jhonathan Medina  \email{jmedinau@unal.edu.co}
 }
 \examples{
 data(Bogota)
 ca <- dudi.coa(Bogota[,2:7],scannf=FALSE,nf=2)
-plotfp(ca$li,eig=ca$eig,main="First Factorial Plane")
+# ade4 style
+plotfp(ca$li,eig=ca$eig,main="First Factorial Plane",infaxes="in")
+# with ggplot2 and ggrepel
+plotfp(ca$li,eig=ca$eig,main="First Factorial Plane",gg=TRUE)
 }
 \keyword{multivariate}
 \keyword{hplot}

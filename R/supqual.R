@@ -4,7 +4,12 @@
 # Campo Elias Pardo Julio 31 de 2015
 #------------------------------------------------
 supqual<-function(du,qual){
-  # pendiente control de entrada
+  # control de entrada ---------
+  if (!all(unlist(lapply(qual, is.factor)))) 
+    stop("All variables must be factors")
+  # si qual es factor convertir a data.frame
+  if (class(qual)=="factor") qual=as.data.frame(qual)
+  #---------------------
   if (class(du)[1]=="acm") method="mca"
   if (class(du)[1]=="pca") method="pca"
   neje<-paste("Axis",1:du$nf,sep="")

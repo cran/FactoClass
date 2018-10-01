@@ -57,7 +57,7 @@ cluster.carac<-function(tabla,class,tipo.v="d",v.lim=2,dn=3,dm=3,neg=TRUE){
       rownames(SALIDA) <- rownames(data.frame(nj))                              
       SALIDA <- subset(SALIDA, abs(V.test) >= v.lim) 
       if (neg==FALSE) subset(SALIDA, V.test >= v.lim)
-      SALIDA <- SALIDA[order(SALIDA$Test.Value, decreasing = TRUE),]                
+      SALIDA <- SALIDA[order(SALIDA$Test.Value, decreasing = TRUE),]  
       return(SALIDA)
     } # termina funcion salida
     # chi cuadrado, phi, valores test por variables

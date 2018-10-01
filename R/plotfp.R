@@ -1,30 +1,71 @@
-#---------------------------------------------------------------------------------------------
-# gráfica de un plano factorial
-# Campo Elias Pardo
-# A partir de plot.dudi
-# para graficar plano factorial a partir de las coordenadas
-# informaci adidional ingresada directamente
-#   x,y ejes a graficar (1,2)
-#   eti: puntos a etiquetar (todas)
-#   main: título de la gráfica (NULL)
-#   axislabel:
-#   col.row: color para los puntos (black)
-#     cex (0.8)
-#   cex.row: escala para etiquetas de los puntos (0.8)
-#     all.point: cierto para graficar todos los puntos aunque no estén etiquetados (TRUE)
-#   cframe: aumento de los límites de la gráfica (1.2)
-#   cal: calidad de representación de los puntos
-#   ucal: umbral (%) de calidad de representación (0), se etiquetan puntos por encima
-#     del umbral en el plano
-#   cex.global: factor de escala para todas las etiquetas
-#     infaxes: lugar para imprimir información de ejes: "out","in","no" ("out")
-#---------------------------------------------------------------------------------------------
+
 plotfp <- function(co,x=1,y=2,eig=NULL,cal=NULL,ucal=0,xlim=NULL,ylim=NULL,main=NULL,
                    rotx=FALSE,roty=FALSE,eti=row.names(co),
                         axislabel=TRUE,col.row="black",cex=0.8,cex.row=0.8,
-                        all.point=TRUE,cframe=1.2,cex.global=1,infaxes="out",asp=1)
+                        all.point=TRUE,cframe=1.2,cex.global=1,infaxes="out",asp=1,gg=FALSE)
 {
+
+if(gg){
 if (!is.null(eig))
+  {
+    eigx <- eig[x]
+    peigx <- round(eigx/sum(eig)*100,1)
+    eigx <- round(eigx,4)
+    eigy <- eig[y]
+    peigy <-round(eigy/sum(eig)*100,1)
+    eigy <- round(eigy,4)                    
+  } 
+# rotación de ejes
+if (rotx) rotx=-1 else rotx=1
+if (roty) roty=-1 else roty=1
+# selección de puntos por umbral de calidad de representación en el plano
+if (ucal>0) eti <- row.names(subset(co,(abs(cal[,x])+abs(cal[,y]))>ucal*100))
+
+ 
+    if (is.null(xlim)) xlim <- c(min(c(rotx*co[,x],0)),max(rotx*co[,x]))
+    if (is.null(ylim)) ylim <- c(min(c(rotx*co[,y],0)),max(rotx*co[,y]))
+    xlim <- xlim*cframe
+    ylim <- ylim*cframe      
+    xlabel <- paste("Factor ",x,": ",sep="")
+    if (!is.null(eig)) xlabel <- paste(xlabel,eigx," (",peigx,"%)",sep="")
+    ylabel <- paste("Factor ",y,": ",sep="")
+    if (!is.null(eig)) ylabel <- paste(ylabel,eigy," (",peigy,"%)",sep="")
+
+
+    cex.row=2.5*cex.row
+    main=paste("\n",main,"\n",sep=" ")     
+    cex <- cex*cex.global
+    cex.lab <- 0.8*cex.global
+    cex.axis <- 12*cex.global #
+    cex.main <- 12*cex.global #
+    cex.row <- cex.row*cex.global
+
+p<-ggplot()+
+      geom_point()+ xlim(xlim)+ ylim(ylim)+
+      theme_bw()+
+      labs(title=main,x =xlabel,y =ylabel)+
+      geom_vline(xintercept = 0,linetype=2)+geom_hline(yintercept = 0,linetype=2)+
+      theme(plot.title = element_text(color="black",face="bold", hjust=0.5,size=cex.main),legend.spacing=unit(5,"lines"))+
+      theme(axis.title.x = element_text(color="black", hjust=0.5,size=cex.axis))+
+      theme(axis.title.y = element_text(color="black", hjust=0.5,size=cex.axis))
+    
+    if(all.point){    
+      p<-p+geom_point(data=data.frame(x=rotx*co[,x],y=roty*co[,y]),aes(x=x,y=y),color=col.row,pch=20,size=cex.row)
+    }else {
+      p<-p+geom_point(data=data.frame(x=rotx*co[eti,x],y=roty*co[eti,y]),aes(x=x,y=y),color=col.row,pch=20,size=cex.row)
+    }
+    
+    row.label<-subset(co[eti,],select=c(x,y))
+        names(row.label)<-paste("Eje",1:length(row.label[1,]),sep="")
+        row.label<-cbind(row.label,colorlabel=col.row)
+        exy=rbind(row.label)
+        if(rotx==(-1)) exy[,1]<-exy[,1]*rotx
+        
+        p<-p+geom_text_repel(data=exy,aes(x=exy[,1],y=exy[,2],label=rownames(exy)),color=exy$colorlabel)	
+}
+
+ if(!gg){ 
+  if (!is.null(eig))
   {
     eigx <- eig[x]
     peigx <- round(eigx/sum(eig)*100,1)
@@ -116,6 +157,10 @@ if (ucal>0) eti <- row.names(subset(co,(abs(cal[,x])+abs(cal[,y]))>ucal*100))
                 labels=rownames(exyR),col=col.row,pos=4,cex=cex.row)
 
   }
+
+  if(gg)return(p)
+ 
+  }
 #------------------fin de plotfp---------------------------------------------------------------
 # grilla tomada de ade4
 "sutil.grid" <- function (cgrid,scale=TRUE) {
@@ -141,4 +186,3 @@ if (ucal>0) eti <- row.names(subset(co,(abs(cal[,x])+abs(cal[,y]))>ucal*100))
 #    rect(x1 - xh, y1 - yh, x1 + xh, y1 + yh, col = "white", border = 0)
     if (scale) text(x1 - xh/2, y1 - yh/2, cha, cex = cex0)
 }
-

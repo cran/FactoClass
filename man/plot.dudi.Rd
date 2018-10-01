@@ -7,11 +7,13 @@
  It plots factorial planes from objects of class \code{dudi}
 }
 \usage{
-\method{plot}{dudi}(x,ex=1,ey=2,xlim=NULL,ylim=NULL,main=NULL,rotx=FALSE,roty=FALSE,
-			roweti=row.names(dudi$li),coleti=row.names(dudi$co),
-			axislabel=TRUE,col.row="black",col.col="blue",cex=0.8,
-			cex.row=0.8,cex.col=0.8,all.point=TRUE,Trow=TRUE,Tcol=TRUE,
-			cframe=1.2,ucal=0,cex.global=1,infaxes="out",gg=FALSE,\dots)
+\method{plot}{dudi}(x,ex=1,ey=2,xlim=NULL,ylim=NULL,main=NULL,rotx=FALSE,
+      roty=FALSE,roweti=row.names(dudi$li),
+      coleti=row.names(dudi$co),axislabel=TRUE,font.col="plain",
+      font.row="plain",col.row="black",col.col="blue",
+      alpha.col=1,alpha.row=1,cex=0.8,cex.row=0.8,cex.col=0.8,
+      all.point=TRUE,Trow=TRUE,Tcol=TRUE,cframe=1.2,ucal=0,
+      cex.global=1,infaxes="out",gg=FALSE,\dots)
 sutil.grid(cgrid,scale=TRUE)    
 }
 \arguments{
@@ -25,9 +27,13 @@ sutil.grid(cgrid,scale=TRUE)
   \item{roty}{TRUE if you want change the sign of the vertical coordinates. Default FALSE }
   \item{roweti}{selected row points for the graphic. Default all points}
   \item{coleti}{selected column points for the graphic. Default all points}
-   \item{axislabel}{if it is TRUE the axis information is written}
+  \item{font.row}{type of font for row labels. Default "plain" }  
+  \item{font.col}{type of font for column labels. Default "plain" }  
+  \item{axislabel}{if it is TRUE the axis information is written}
   \item{col.row}{color for row points and row labels. Default "black"}
   \item{col.col}{color for column points and column labels. Default "blue"}
+  \item{alpha.row}{transparency for row points and row labels. Default cex.ilu=1 }
+  \item{alpha.col}{transparency for column points and column labels. Default cex.ilu=1 }
   \item{cex}{global scale for the labels. Default cex=0.8}
   \item{cex.row}{scale for row points and row labels. Default cex.row=0.8 }
   \item{cex.col}{scale for column points and column labels. Default cex.col=0.8 }
@@ -40,7 +46,7 @@ sutil.grid(cgrid,scale=TRUE)
   \item{infaxes}{place to put the axes information: "out","in","no". Default infaxes="out".
     If infaxes="out" the graphic is similar to \code{FactoMineR} graphics, otherwise the style
     is similar to the one in \code{ade4}, without axes information when infaxes="no"}
-  \item{gg}{If TRUE the version ggplot ggrepel is perfomance. Default TRUE }
+  \item{gg}{If TRUE the version ggplot ggrepel is perfomance. Default FALSE}
   \item{\dots}{further arguments passed to or from other methods}
   \item{cgrid}{internal parameter}
   \item{scale}{internal}  
@@ -60,11 +66,11 @@ sutil.grid(cgrid,scale=TRUE)
 \examples{
 data(Bogota)
 ca <- dudi.coa(Bogota[,2:7],scannf=FALSE,nf=4)
-# FactoMineR style
-plot(ca)
+# with ggplot2 and ggrepel
+plot(ca,gg=TRUE)
 dev.new()
 # ade4 style
-plot.dudi(ca,ex=3,ey=4,ucal=0.2,all.point=FALSE,infaxes="in",gg=FALSE)
+plot.dudi(ca,ex=3,ey=4,ucal=0.2,all.point=FALSE,infaxes="in")
 }
 \keyword{multivariate}
 \keyword{hplot}

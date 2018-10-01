@@ -131,9 +131,9 @@ file         <- paste(dir,"/",job,".tex",sep="")
 
 afg          <- FC
 afgI         <- inertia.dudi(afg$dudi,row.inertia=TRUE,col.inertia=TRUE)
-percent      <- diff(afgI$TOT$`cum(%)`,1)
-percent      <- c(afgI$TOT$`cum(%)`[1],percent)
-tvalp        <- cbind(afgI$TOT[,1:2]*1000,percent,subset(afgI$TOT,select=3))
+percent      <- diff(afgI$tot.inertia$`cum(%)`,1)
+percent      <- c(afgI$tot.inertia$`cum(%)`[1],percent)
+tvalp        <- cbind(afgI$tot.inertia[,1:2]*1000,percent,subset(afgI$tot.inertia,select=3))
 names(tvalp) <- c("Eigenvalue","CumInertia","Percent","CumPercent")
 
 carac.cate <- NULL

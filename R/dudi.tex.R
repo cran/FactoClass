@@ -33,9 +33,9 @@ latex <- function(obj,job="latex",tit="",lab="",append=TRUE,dec=1)
 dudi.tex <- function(dudi,job="",aidsC=TRUE,aidsR=TRUE,append=TRUE){
 afg <- dudi
 afgI <- inertia.dudi(afg,row.inertia=TRUE,col.inertia=TRUE)
-percent <- diff(afgI$TOT$`cum(%)`,1)
-percent <- c(afgI$TOT$`cum(%)`[1],percent)
-tvalp <-cbind(afgI$TOT[,1:2]*1000,percent,subset(afgI$TOT,select=3))
+percent <- diff(afgI$tot.inertia$`cum(%)`,1)
+percent <- c(afgI$tot.inertia$`cum(%)`[1],percent)
+tvalp <-cbind(afgI$tot.inertia[,1:2]*1000,percent,subset(afgI$tot.inertia,select=3))
 names(tvalp) <- c("Eigenvalue","CumInertia","Percent","CumPercent")
 latex(tvalp,job,"Eigenvalues * 1000","eigenvalues",FALSE,dec=1)
 latex(afg$c1,job,"Eigenvectors","eigenvectors",dec=4)

@@ -9,13 +9,17 @@
 #   x,y ejes a graficar (1,2)
 #   roweti: filas a etiquetar (todas)
 #   coleti: columnas a etiquetar (todas)
-#   main: t?tulo de la gr?fica (NULL)
+#   main: titulo de la grafica (NULL)
 #   axislabel:
 #   col.row: color para las filas (black)
 #     col.col: color para las colulmnas (blue)
 #     cex (0.8)
 #   cex.row: escala para etiquetas de filas (0.8)
 #   cex.col: escala para etiquetas de columnas (0.8)
+#   alpha.row: trasnparencia para las filas (1)
+#   alpha.col: trasnparencia para las columnas (1)
+#   font.row: tipo de letra para etiquetas de filas (plain)
+#   font.col: tipo de letra para etiquetas de columnas (plain)
 #     all.point: cierto para graficar todos los puntos aunque no estan etiquetados (TRUE)
 #     Trow: cierto para graficar filas (TRUE)
 #   Tcol: cierto para graficar columnas (TRUE)
@@ -29,12 +33,15 @@
 # se agrega modificacion provisional de Jhonathan Medina para graficar con ggplot
 # y ggrepel, se incluye parametro gg = TRUE, para ejecutar esta version
 # y con FALSE la version antigua.
+# sep 29 2018, cambios Jhonathan
 #---------------------------------------------------------------------------------------------
-plot.dudi <- function(x,ex=1,ey=2,xlim=NULL,ylim=NULL,main=NULL,rotx=FALSE,roty=FALSE,roweti=row.names(dudi$li),
-                        coleti=row.names(dudi$co),axislabel=TRUE,
-                        col.row="black",col.col="blue",cex=0.8,cex.row=0.8,cex.col=0.8,
-                        all.point=TRUE,Trow=TRUE,Tcol=TRUE,cframe=1.2,ucal=0,
-                cex.global=1,infaxes="out",gg=FALSE,...)
+plot.dudi <- function(x,ex=1,ey=2,xlim=NULL,ylim=NULL,main=NULL,rotx=FALSE,#7
+                      roty=FALSE,roweti=row.names(dudi$li),#9
+                      coleti=row.names(dudi$co),axislabel=TRUE,font.col="plain",#12
+                      font.row="plain",col.row="black",col.col="blue",#15
+                      alpha.col=1,alpha.row=1,cex=0.8,cex.row=0.8,cex.col=0.8,#20
+                      all.point=TRUE,Trow=TRUE,Tcol=TRUE,cframe=1.2,ucal=0,#24
+                      cex.global=1,infaxes="out",gg=FALSE,...)#27
 { 
 if (gg) 
 {
@@ -51,8 +58,8 @@ if (gg)
     if (ucal>0){
       cosfil <- inertia.dudi(dudi,TRUE)$row.rel
       coscol <- inertia.dudi(dudi,,TRUE)$col.rel
-      roweti <- row.names(subset(dudi$li,(abs(cosfil[,ex])+abs(cosfil[,ey]))>ucal*100))
-      coleti <- row.names(subset(dudi$co,(abs(coscol[,ex])+abs(coscol[,ey]))>ucal*100))   
+      if(!is.na(roweti[1]))roweti <- row.names(subset(dudi$li, (abs(cosfil[,ex]) + abs(cosfil[, ey])) > ucal * 100))
+      if(!is.na(coleti[1]))coleti <- row.names(subset(dudi$co, (abs(coscol[,ex]) + abs(coscol[, ey])) > ucal * 100))  
     }
     
     eigx <- dudi$eig[ex]
@@ -88,11 +95,11 @@ if (gg)
       theme(axis.title.y = element_text(color="black", hjust=0.5,size=cex.axis))
     
     if(all.point){    
-      if(Trow) p<-p+geom_point(data=data.frame(ex=rotx*dudi$li[,ex],ey=roty*dudi$li[,ey]),aes(x=ex,y=ey),color=col.row,pch=20,size=cex.row)
-      if(Tcol) p<-p+geom_point(data=data.frame(ex=rotx*dudi$co[,ex],ey=roty*dudi$co[,ey]),aes(x=ex,y=ey),color=col.col,pch=17,size=cex.col)
+      if(Trow) p<-p+geom_point(data=data.frame(ex=rotx*dudi$li[,ex],ey=roty*dudi$li[,ey]),aes(x=ex,y=ey),alpha=alpha.row,color=col.row,pch=20,size=cex.row)
+      if(Tcol) p<-p+geom_point(data=data.frame(ex=rotx*dudi$co[,ex],ey=roty*dudi$co[,ey]),aes(x=ex,y=ey),alpha=alpha.col,color=col.col,pch=17,size=cex.col)
     }else {
-      if(Trow) p<-p+geom_point(data=data.frame(ex=rotx*dudi$li[roweti,ex],ey=roty*dudi$li[roweti,ey]),aes(x=ex,y=ey),color=col.row,pch=20,size=cex.row)
-      if(Tcol) p<-p+geom_point(data=data.frame(ex=rotx*dudi$co[coleti,ex],ey=roty*dudi$co[coleti,ey]),aes(x=ex,y=ey),color=col.col,pch=17,size=cex.col)    
+      if(Trow) p<-p+geom_point(data=data.frame(ex=rotx*dudi$li[roweti,ex],ey=roty*dudi$li[roweti,ey]),aes(x=ex,y=ey),alpha=alpha.row,color=col.row,pch=20,size=cex.row)
+      if(Tcol) p<-p+geom_point(data=data.frame(ex=rotx*dudi$co[coleti,ex],ey=roty*dudi$co[coleti,ey]),aes(x=ex,y=ey),alpha=alpha.col,color=col.col,pch=17,size=cex.col)    
     }
     
     ## Graficar las etiquetas, para que la funcion ggrepel funcione toca graficar 
@@ -104,36 +111,36 @@ if (gg)
       col.label<-subset(dudi$co[coleti,],select=c(ex,ey))
       names(row.label)<-paste("Eje",1:length(row.label[1,]),sep="")
       names(col.label)<-paste("Eje",1:length(col.label[1,]),sep="")
-      row.label<-cbind(row.label,colorlabel=col.row)
-      col.label<-cbind(col.label,colorlabel=col.col)
+      row.label<-cbind(row.label,colorlabel=col.row,fontlabel=font.row)
+      col.label<-cbind(col.label,colorlabel=col.col,fontlabel=font.col)
       exy=rbind(row.label,col.label)
       if(rotx==(-1)) exy[,1]<-exy[,1]*rotx
       if(roty==(-1)) exy[,2]<-exy[,2]*roty
       
       
-      p<-p+geom_text_repel(data=exy,aes(x=exy[,1],y=exy[,2],label=rownames(exy)),color=exy$colorlabel)
+      p<-p+geom_text_repel(data=exy,aes(x=exy[,1],y=exy[,2],label=rownames(exy)),color=exy$colorlabel,fontface=exy$fontlabel)
       
     }else{
       if(Trow){ # Solamente filas
         
         row.label<-subset(dudi$li[roweti,],select=c(x,y))
         names(row.label)<-paste("Eje",1:length(row.label[1,]),sep="")
-        row.label<-cbind(row.label,colorlabel=col.row)
+        row.label<-cbind(row.label,colorlabel=col.row,fontlabel=font.row)
         exy=rbind(row.label)
         if(rotx==(-1)) exy[,1]<-exy[,1]*rotx
         
-        p<-p+geom_text_repel(data=exy,aes(x=exy[,1],y=exy[,2],label=rownames(exy)),color=exy$colorlabel)
+        p<-p+geom_text_repel(data=exy,aes(x=exy[,1],y=exy[,2],label=rownames(exy)),color=exy$colorlabel,fontface=exy$fontlabel)
         
       }else{
         if(Tcol){ # Solamente columnas
           
           col.label<-subset(dudi$co[coleti,],select=c(x,y))
           names(col.label)<-paste("Eje",1:length(col.label[1,]),sep="")
-          col.label<-cbind(col.label,colorlabel=col.col)
+          col.label<-cbind(col.label,colorlabel=col.col,fontlabel=font.col)
           exy=rbind(col.label)
           if(roty==(-1)) exy[,1]<-exy[,1]*roty
           
-          p<-p+geom_text_repel(data=exy,aes(x=exy[,1],y=exy[,2],label=rownames(exy)),color=exy$colorlabel)
+          p<-p+geom_text_repel(data=exy,aes(x=exy[,1],y=exy[,2],label=rownames(exy)),color=exy$colorlabel,fontface=exy$fontlabel)
           
         }
         
