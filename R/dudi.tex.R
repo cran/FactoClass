@@ -5,7 +5,7 @@
 # C.E. Pardo Julio/04
 # requiere paquete xtable
 # entra afc de tipo "dudi",
-# job = t?tulo del trabajo para las tablas
+# job = titulo del trabajo para las tablas
 # append
 # se imprimen los resultados en consola
 # se escribe en el archivo job.tex

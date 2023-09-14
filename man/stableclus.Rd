@@ -25,9 +25,8 @@ object of class \code{stableclus} with the following characteristics:
 \references{ 
 Arias, C. A.; Zarate, D.C. and Pardo C.E. (2009), 'Implementacion del metodo de grupos estables en el paquete FactoClass de R', in: XIX Simposio Colombiano de Estadistica.
 Estadisticas Oficiales
-Medell?n Colombia, Julio 16 al 20 de 2009
+Medellin Colombia, Julio 16 al 20 de 2009
 Universidad Nacional de Colombia. Bogota.
-\url{http://www.docentes.unal.edu.co/cepardot/docs/SimposiosEstadistica/AriasZaratePardo09.pdf}
 
 Lebart, L. (2015), 'DtmVic: Data and Text Mining - Visualization, Inference, Classification. Exploratory statistical processing of complex data sets comprising both numerical and textual data.', Web.
  \url{http://www.dtmvic.com/}
@@ -36,7 +35,7 @@ Lebart, L., Morineau, A., Lambert, T. and Pleuvret, P. (1999), \emph{SPAD}. Syst
 Paris.
 
 Lebart, L., Piron, M. and Morineau, A. (2006), Statisitique exploratoire multidimensionnelle. Visualisation
-et inf?rence en fouilles de donn?es, 4 edn, Dunod, Paris.
+et inference en fouilles de donnees, 4 edn, Dunod, Paris.
 }
 \author{
 Carlos Andres Arias \email{caariasr@unal.edu.co},

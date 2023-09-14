@@ -1,16 +1,17 @@
 ###########################################################################################
-## Función que divide un objeto 'data.frame' en una lista dividida en variables          ##
+## Funcion que divide un objeto 'data.frame' en una lista dividida en variables          ##
 ##   cuantitativas y cualitativas 	                                                 ##
 ##											 ##
 ##											 ##
 ## Elaborado por: Pedro Cesar del Campo Neira	
-## Revisado por: Campo Elías Pardo					 ##
+## Revisado por: Campo Elias Pardo					 ##
 ## Universidad Nacional de Colombia							 ##
 ## 											 ##
 ## requiere:ade4      library(ade4)							 ##
 ##											 ##
 ## Fac.Num  ( tabla     := objeto 'data frame' )	        			 ##
-## 											 ##
+## 											 
+## Correcciones pedidas por CRAN CE Pardo  2023-09-13
 ###########################################################################################
 
 Fac.Num <- function (tabla) 
@@ -21,7 +22,7 @@ Fac.Num <- function (tabla)
     clase <- NULL
     
     for (i in 1:c.var) {
-      if ( class(tabla[, i])=="character" ) tabla[,i] <- as.factor(tabla[,i])
+      if ( is.character(tabla[, i])) tabla[,i] <- as.factor(tabla[,i])
       clase <- cbind(clase, class(tabla[, i]))
     }
         

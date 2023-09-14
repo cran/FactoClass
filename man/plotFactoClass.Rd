@@ -1,4 +1,3 @@
-\encoding{latin1}
 \name{plotFactoClass}
 \alias{plotFactoClass}
 \title{Factorial Planes Showing the Classes}

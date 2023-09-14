@@ -1,4 +1,3 @@
-\encoding{latin1}
 \name{plot.dudi}
 \alias{plot.dudi}
 \alias{sutil.grid}

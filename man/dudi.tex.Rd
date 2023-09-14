@@ -1,4 +1,3 @@
-\encoding{latin1}
 \name{dudi.tex}
 \alias{dudi.tex}
 \alias{latex}
@@ -48,6 +47,7 @@ Campo Elias PARDO \email{cepardot@unal.edu.co} }
 \examples{
 data(Bogota)
 coa1 <- dudi.coa(Bogota[,2:7], scannf = FALSE)
-dudi.tex(coa1,job="Bogota") 
+# In order to create a file: Bogota.tex in LaTeX
+# dudi.tex(coa1,job="Bogota")  
 }
 \keyword{multivariate}

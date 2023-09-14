@@ -1,8 +1,8 @@
 #---------------------------------------------------------
-# Función para graficar diagrams de dispersion
+# Funcion para graficar diagrams de dispersion
 # con las densidades kernel en la diagonal
 # las densidades kernel bivariadas en la diagonal superior
-# diagrams de dispersión en diagonal inferior
+# diagrams de dispersion en diagonal inferior
 #  abril 12  de 2017. CE Pardo
 #---------------------------------------------------------
 plotpairs <- function(X,maxg=5,cex=1){

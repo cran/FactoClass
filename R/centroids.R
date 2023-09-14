@@ -31,7 +31,7 @@ centroids <- function(df,cl,rw=rep(1/nrow(df),nrow(df)))
   dfdistri <- f1(cl) * rw  
   w1 <- unlist(lapply(dfdistri, sum)) # pesos de las clases
   coo <- as.matrix(t(dfdistri)) %*%as.matrix(df)/w1
-  if (class(cl)=="factor") rownames(coo) <-levels(cl)
+  if (is.factor(cl)) rownames(coo) <-levels(cl)
   xmed<-colMeans(df)
   var<- diag(var(df))*(nrow(df)-1)/nrow(df)
   vark <- w1 %*% (coo - rep(1,length(levels(cl)))%*%t(xmed))^2 

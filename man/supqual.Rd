@@ -1,4 +1,3 @@
-\encoding{latin1}
 \name{supqual}
 \alias{supqual}
 \title{Projection of Qualitative Variables in PCA and MCA}

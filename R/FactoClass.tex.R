@@ -121,8 +121,6 @@ roundDF <- function(tabla,dec=1)
 
 FactoClass.tex <- function(FC,job="",append=TRUE, dir = getwd() , p.clust = FALSE ){
 
- if(class(FC)!="FactoClass"){return(cat("Only object 'FactoClass' \n"))}
-
 ###---------------------------------------------------------------------------------
 
 

@@ -15,10 +15,10 @@ if (!is.null(eig))
     peigy <-round(eigy/sum(eig)*100,1)
     eigy <- round(eigy,4)                    
   } 
-# rotación de ejes
+# rotacion de ejes
 if (rotx) rotx=-1 else rotx=1
 if (roty) roty=-1 else roty=1
-# selección de puntos por umbral de calidad de representación en el plano
+# seleccion de puntos por umbral de calidad de representacion en el plano
 if (ucal>0) eti <- row.names(subset(co,(abs(cal[,x])+abs(cal[,y]))>ucal*100))
 
  
@@ -74,10 +74,10 @@ p<-ggplot()+
     peigy <-round(eigy/sum(eig)*100,1)
     eigy <- round(eigy,4)                    
   } 
-# rotación de ejes
+# rotacion de ejes
 if (rotx) rotx=-1 else rotx=1
 if (roty) roty=-1 else roty=1
-# selección de puntos por umbral de calidad de representación en el plano
+# seleccion de puntos por umbral de calidad de representacion en el plano
 if (ucal>0) eti <- row.names(subset(co,(abs(cal[,x])+abs(cal[,y]))>ucal*100))
 
  
@@ -99,7 +99,7 @@ if (ucal>0) eti <- row.names(subset(co,(abs(cal[,x])+abs(cal[,y]))>ucal*100))
     if (infaxes != "out")
       {
         opar <- par(mar = par("mar")) # tomado de s.label de ade4
-            on.exit(par(opar))      # quita los márgenes
+            on.exit(par(opar))      # quita los m?rgenes
             par(mar = c(0.1, 0.1, 0.1, 0.1)) # externos
 
         plot.default(0, 0, type = "n", asp = asp, xlab = "", ylab = "", 

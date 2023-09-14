@@ -1,4 +1,3 @@
-\encoding{latin1}
 \name{plotpairs}
 \alias{plotpairs}
 \title{Modified pairs plot}

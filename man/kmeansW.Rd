@@ -31,10 +31,10 @@ kmeansW(x, centers, weight = rep(1,nrow(x)),
 
 Burkardt, J. (2008).
 ASA136 The K-Means Algorithm.
- \url{http://people.sc.fsu.edu/~burkardt/cpp_src/asa136/asa136.html}
+ \url{https://people.sc.fsu.edu/~jburkardt/cpp_src/asa136/asa136.html}
 }
 \author{
-Camilo Jos? Torres \email{cjtorresj@unal.edu.co},  Campo Elias Pardo \email{cepardot@unal.edu.co}
+Camilo Jose Torres \email{cjtorresj@unal.edu.co},  Campo Elias Pardo \email{cepardot@unal.edu.co}
 }
 
 \examples{

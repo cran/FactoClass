@@ -1,4 +1,3 @@
-\encoding{latin1}
 \name{plotcc}
 \alias{plotcc}
 \title{Correlation circle from coordinates}

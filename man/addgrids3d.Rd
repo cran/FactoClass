@@ -39,9 +39,7 @@ Users who want to extend an existing scatterplot3d graphic with the
  function addgrids3d, should consider to set the arguments scale.y, angle, ...,
  to the value used in scatterplot3d.
 }
-\references{
-\url{http://www.sthda.com}
-}
+
 \author{
 Alboukadel Kassambara \email{alboukadel.kassambara@gmail.com}
 }

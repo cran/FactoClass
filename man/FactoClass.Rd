@@ -77,8 +77,7 @@ multidimensionnelle, Paris.
 }
 \author{
  Pedro Cesar del Campo \email{pcdelcampon@unal.edu.co},
- Campo Elias Pardo \email{cepardot@unal.edu.co}
-       \url{http://www.docentes.unal.edu.co/cepardot},
+ Campo Elias Pardo \email{cepardot@unal.edu.co},
  Ivan Diaz \email{ildiazm@unal.edu.co},       
  Mauricio Sadinle \email{msadinleg@unal.edu.co}
 }

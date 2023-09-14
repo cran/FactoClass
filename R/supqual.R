@@ -8,10 +8,10 @@ supqual<-function(du,qual){
   if (!all(unlist(lapply(qual, is.factor)))) 
     stop("All variables must be factors")
   # si qual es factor convertir a data.frame
-  if (class(qual)=="factor") qual=as.data.frame(qual)
+  if (is.factor(qual)) qual=as.data.frame(qual)
   #---------------------
-  if (class(du)[1]=="acm") method="mca"
-  if (class(du)[1]=="pca") method="pca"
+  if (inherits(du[1],"acm")) method="mca"
+  if (inherits(du[1],"pca")) method="pca"
   neje<-paste("Axis",1:du$nf,sep="")
 if (method=="pca")  {
   acp<-du  # cambio de nombre 

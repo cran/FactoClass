@@ -1,4 +1,3 @@
-\encoding{latin1} 
 \name{Whisky}
  \alias{Whisky}
  \title{Whisky example}

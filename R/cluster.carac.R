@@ -33,7 +33,7 @@ cluster.carac<-function(tabla,class,tipo.v="d",v.lim=2,dn=3,dm=3,neg=TRUE){
     # funcion interno
     interno <- function(c.tabla)
       {##  Funcion para procesar en un solo cluster_k
-      if(class(c.tabla)=="factor") c.tabla <- as.data.frame(c.tabla)  # Mod. Mauricio                        
+      if(is.factor(c.tabla)) c.tabla <- as.data.frame(c.tabla)  # Mod. Mauricio                        
       disy <- acm.disjonctif(c.tabla) ##  Tabla disyuntiva completa en cluster_k
       nk <- dim(disy)[1]              ##  cantidad de individuos cluster_k   
       njk <- apply(disy,2,sum)        ##  cantidad de individuos mod_j cluster_k

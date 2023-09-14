@@ -33,7 +33,7 @@ The Ward's distance between two elements to classify $i$ and $l$ is given by:
 }
 \author{ Pedro Cesar del Campo \email{pcdelcampon@unal.edu.co},
          Campo Elias Pardo \email{cepardot@unal.edu.co}
-  \url{http://www.docentes.unal.edu.co/cepardot}      }
+}
 
 \references{
 Lebart, L. and Morineau, A. and Piron, M. (1995) \emph{Statisitique exploratoire

@@ -1,27 +1,29 @@
 #############################################################################################
-##  Funcion de enlace: Combinación de métodos factoriales y de clasificaciòn no            ##
+##  Funcion de enlace: Combinacion de metodos factoriales y de clasificacion no            ##
 ##  supervisada.                                                                           ##
 ##                                                                                         ##
-##  Mayo 15 de 2011 inclusión de parámetro de pesos en función FactoClass (CEPT)           ##
+##  Mayo 15 de 2011 inclusion de parametro de pesos en funcion FactoClass (CEPT)           ##
 ##                                                                                         ##
 ## Elaborado por: Pedro Cesar del Campo Neira                                              ##
-## Revisado y modificado por: Campo Elías Pardo  INGLÉS  Nov.30/07                         ##
+## Revisado y modificado por: Campo Elias Pardo  INGLES  Nov.30/07                         ##
 ## Universidad Nacional de Colombia                                                        ##
-##                                                                                         ##
+##  
+## Correciones para CRAN septiembre 13 2023
+##
 ## requiere:ade4      library(ade4)                                                        ##
 ##                                                                                         ##
 ## Fac.Num  ( dfact   = objeto 'data.frame' de datos variables activas,                    ##
 ##            metodo  = funcion de ade4 para metodo factorial.                             ##
 ##            dfilu   = variables ilustrativas (deafault NULL)                             ##
 ##            nfaf    = Numero de ejes para el analisis (deafault 2)                       ##
-##            nfcl    = Numero de ejes para la clasificación (deafault NULL)               ##
+##            nfcl    = Numero de ejes para la clasificaci?n (deafault NULL)               ##
 ##            k.clust = Numero de clases (deafault NULL)                                   ##
 ##            scanFC  = 'TRUE',escanea ,y si 'FALSE', no escanea                           ##
 ##            n.max   = si 'dim(dfact)[1]>=n.max' efectua previo k-means (deafault 5000)   ##
 ##            n.clus  = si 'dim(dfact)[1]>=n.max' efectua WARD con n.clus (deafault 1000)  ##
 ##            sign    = valor estadistico de rechazo en las pruebas.                       ##
-##            conso   = realiza proceso de consolidación de la clasificación(deafault TRUE)##
-##            n.indi  = número de indices en el grafico (default 25)                       ##
+##            conso   = realiza proceso de consolidacion de la clasificacion(deafault TRUE)##
+##            n.indi  = n?mero de indices en el grafico (default 25)                       ##
 ##          )                                                                              ##
 ##                                                                                         ##
 #############################################################################################
@@ -35,30 +37,30 @@ FactoClass<-function( dfact, metodo,dfilu = NULL , nf = 2, nfcl = 10, k.clust = 
   n <- dim(dfact)[1]
 
   n.act  <- deparse(substitute(dfact))  ### Tipo caracter nombre de dfact
-  metodo <- deparse(substitute(metodo)) ### Tipo caracter nombre de la función
- ### construccion del llamado función dudi
+  metodo <- deparse(substitute(metodo)) ### Tipo caracter nombre de la funci?n
+ ### construccion del llamado funcion dudi
   row.w <- row.w/sum(row.w) # asegurar que los pesos suman 1
   if(metodo=="dudi.coa") call1 <- call(metodo,df = as.name(n.act), nf = nf , scannf = scanFC)
      else call1 <- call(metodo,df = as.name(n.act), nf = nf , scannf = scanFC,row.w=row.w) 
                                                                         
   par(las=1)                                                                      
-  DuDi1 <- eval(call1) # evaluación del llamado función dudi.*
+  DuDi1 <- eval(call1) # evaluaci?n del llamado funci?n dudi.*
   nf    <- DuDi1$nf
   cat("The number of retained axes for factorial analysis is ",nf,"\n\n") 
 
-  if(scanFC==TRUE){  #### Selecciona numero de ejes para realizar el proceso de clasificación
+  if(scanFC==TRUE){  #### Selecciona numero de ejes para realizar el proceso de clasificaci?n
     cat("Select the number of axes for clustering: ")
     nfcl <- as.integer(readLines(n = 1))
   }
 
-  DuDi2 <- redo.dudi( DuDi1, newnf = nfcl ) ### objeto dudi para clasificación
+  DuDi2 <- redo.dudi( DuDi1, newnf = nfcl ) ### objeto dudi para clasificaci?n
   nfcl <- DuDi2$nf
  
   cat("The number of axes for clustering is ",nfcl,"\n\n")
              
-  objetos   <- DuDi2$li  ### ejes factoriales de filas para clasificación
-  pesos     <- DuDi2$lw  ### pesos de filas para clasificación
-  obj.clasf <- objetos   ### elementos que entran a la clasificación
+  objetos   <- DuDi2$li  ### ejes factoriales de filas para clasificaci?n
+  pesos     <- DuDi2$lw  ### pesos de filas para clasificaci?n
+  obj.clasf <- objetos   ### elementos que entran a la clasificaci?n
 
 ###########################################################################
 ######################### Primer criterio de clasificacion "n >= n.max"
@@ -71,12 +73,12 @@ FactoClass<-function( dfact, metodo,dfilu = NULL , nf = 2, nfcl = 10, k.clust = 
   }
 
 ###########################################################################
-######################### clasificación no supervisada método de WARD 
+######################### clasificaci?n no supervisada m?todo de WARD 
 
   dend <- ward.cluster( dista= dist(obj.clasf), peso=pesos ,h.clust = 0, n.indi = n.indi)
   cat("Look the histogram of",n.indi,"indexes \n")
 
-  if(scanFC == TRUE){### Selecciona numero el número de clases
+  if(scanFC == TRUE){### Selecciona numero el numero de clases
     cat("Select the number of clusters: ")       
     k.clust <- as.integer(readLines(n = 1))
   }
@@ -93,7 +95,7 @@ FactoClass<-function( dfact, metodo,dfilu = NULL , nf = 2, nfcl = 10, k.clust = 
     cluster1 <- dd$cl2
   }
 
-  dev.new()     ### Dendograma con clasificación
+  dev.new()     ### Dendograma con clasificaci?n
   plot(dend$HW,las=1,sub="",xlab="",ylab="Indexes",main="")
   rect.hclust(dend$HW, k.clust, border="blue")
 
@@ -108,10 +110,10 @@ FactoClass<-function( dfact, metodo,dfilu = NULL , nf = 2, nfcl = 10, k.clust = 
   p.clust1 <- DuDi2$lw
   for (k in 1:k.clust){ p.clust1[cluster1==k] <- pes(p.clust1[cluster1==k]) } ## Pesos de los individuos 
                                                                               ## para cluster 1.                                                                            
-  center1 <- lapply(by( p.clust1 * DuDi2$li , cluster1, colSums ),ft)         ## Centros de la clasificación 
+  center1 <- lapply(by( p.clust1 * DuDi2$li , cluster1, colSums ),ft)         ## Centros de la clasificacion 
   center1 <- list.to.data(center1)[-1]                                        ## generada por WARD 
 
-#################### ordena la clasificación por el primer componente principal
+#################### ordena la clasificaci?n por el primer componente principal
 
 #  critrio.orden     <- order(center1[,1])
 #  center1           <- center1[ critrio.orden, ]
@@ -125,12 +127,12 @@ FactoClass<-function( dfact, metodo,dfilu = NULL , nf = 2, nfcl = 10, k.clust = 
   
   
  
- if(conso){    ########################################### con consolidación   
+ if(conso){    ########################################### con consolidaci?n   
     clus.summ <- NULL 
 ###########################################################################
 ###########################################################################
 
-  ###  clasificación generada por K-MEANS con centros de WARD(center1)
+  ###  clasificacion generada por K-MEANS con centros de WARD(center1)
     cluster2 <- kmeansW( x = objetos , centers = center1 , weight = pesos )$cluster    
     #cluster2 <- kmeans( objetos , center1)$cluster 
                    
@@ -164,9 +166,9 @@ FactoClass<-function( dfact, metodo,dfilu = NULL , nf = 2, nfcl = 10, k.clust = 
 
   rownames(clus.summ)[k.clust + 1] <- "TOTAL"  
     
-  } # fin consolidación                                                 
+  } # fin consolidacion                                                 
 
-  if(!conso){########### --------------------- sin consolidación
+  if(!conso){########### --------------------- sin consolidaci?n
     clus.summ1 <- NULL
                ## Tabla de comportamiento de inercia de las clases 1 y 2
       for(k in 1:k.clust){
@@ -203,7 +205,7 @@ FactoClass<-function( dfact, metodo,dfilu = NULL , nf = 2, nfcl = 10, k.clust = 
 #if(class(DuDi1)[1] == "coa" ){ base0 <- data.frame(t(t(dfact)/colSums(dfact))) }
 
   if( is.null(dfilu) == FALSE ){ 
-   if(class(dfilu)!="data.frame"){ return(cat("\n\n ERROR: Illustrative Variables should be 'data.frame'\n")) }
+   if(!is.data.frame(dfilu)) { return(cat("\n\n ERROR: Illustrative Variables should be 'data.frame'\n")) }
    if(dim(dfilu)[1]!= n ){ return(cat("\n\n ERROR: Active and  Illustrative Variables 
                            should have the same number of elements\n")) }
    base0 <- data.frame(base0,dfilu) 
@@ -221,7 +223,8 @@ FactoClass<-function( dfact, metodo,dfilu = NULL , nf = 2, nfcl = 10, k.clust = 
 # agregado por CEPT mayo 14/09
   if(is.null(base0$integer)==FALSE){ carac.frec <- cluster.carac( base0$integer , cluster2 ,"fr", sign) }
   
-  if(class(DuDi1)[1] == "coa" ){
+  if(inherits(DuDi1,"coa"))
+  {
     if(is.null(dfilu)==FALSE) dfact <- data.frame(dfact,dfilu)
     carac.frec <- cluster.carac(dfact,cluster2,"fr",sign)
   }

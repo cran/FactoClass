@@ -1,4 +1,3 @@
-\encoding{latin1}
 \name{plotfp}
 \alias{plotfp}
 \title{Factorial Planes from Coordinates}

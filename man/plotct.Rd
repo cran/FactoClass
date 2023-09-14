@@ -1,4 +1,3 @@
-\encoding{latin1}
 \name{plotct}
 \alias{plotct}
 \title{Row and Column Profiles of a Contingency Table}
@@ -20,7 +19,6 @@ plotct(x,profiles="both",legend.text=TRUE,tables=FALSE,nd=1,... )
   Plot row profiles in horizontal form and columns profiles in vertical form 
  }
 \author{Camilo Jose Torres \email{cjtorresj@unal.edu.co} , Campo Elias Pardo \email{cepardot@unal.edu.co} 
-  \url{http://www.docentes.unal.edu.co/cepardot}
 }
 \value{
  if tables=TRUE, object of class \code{list} with the following:

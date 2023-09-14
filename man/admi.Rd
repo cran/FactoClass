@@ -19,6 +19,6 @@
  }
 }
  \source{SIA: Academic Information System}
- \references{C.E. Pardo (2015). Estadística descriptiva multivariada. Universidad Nacional de Colombia. Facultad de Ciencias.}  
+ \references{C.E. Pardo (2015). EstadÃ­stica descriptiva multivariada. Universidad Nacional de Colombia. Facultad de Ciencias.}  
  \keyword{datasets}
 

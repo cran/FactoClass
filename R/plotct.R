@@ -1,9 +1,9 @@
 #---------------------------------------------------------
-# Función para graficar perfiles fila y columna de tablas
+# Funcion para graficar perfiles fila y columna de tablas
 # de contingencia
-# versión inicial de Camilo Torres
+# version inicial de Camilo Torres
 # Modificaciones julio 15 de 2010. CE Pardo
-# modificación julio 30 de 2015: agregar salida de tablas 
+# modificacion julio 30 de 2015: agregar salida de tablas 
 # de perfiles y de contingencia con marginales
 #---------------------------------------------------------
 plotct <- function(x,profiles="both",legend.text=TRUE,tables=FALSE,nd=1,... )

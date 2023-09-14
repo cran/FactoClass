@@ -1,13 +1,13 @@
 #---------------------------------------------------------------------------------------------
 # Agrega las clases a un plano factorial
-# Campo Elías Pardo, Pedro del Campo
+# Campo Elias Pardo, Pedro del Campo
 # Octubre 11-06, modificada octubre 30/08
 # requiere ade4, utiliza s.class de ade4
 #PARAMETROS 
-#  Los mismos parametros de planfac pero entra objeto FactoClass y par?metros nclus para nombre de
-# las clases y cex.clus para tama?o de clases, col.row es un vector para color de las clases
+#  Los mismos parametros de planfac pero entra objeto FactoClass y parametros nclus para nombre de
+# las clases y cex.clus para tamanio de clases, col.row es un vector para color de las clases
 # cstar es de s.class 0 para no poner radios a los individuos de una clase
-#  infaxes: lugar para imprimir informaci?n de ejes: "out","in","no" ("out")
+#  infaxes: lugar para imprimir informacion de ejes: "out","in","no" ("out")
 #---------------------------------------------------------------------------------------------
 plotFactoClass <- function(FC,x=1,y=2,xlim=NULL,ylim=NULL,rotx=FALSE,roty=FALSE,roweti=row.names(dudi$li),
                         coleti=row.names(dudi$co),titre=NULL,axislabel=TRUE,

@@ -9,7 +9,7 @@
  \format{Object whit class \code{data.frame} of 19 rows and 7 columns.}
  \source{DAPD (1997), Population, stratification and socioeconomic aspects of Bogota}
  \references{C.E. Pardo y J.E. Ortiz (2004). Analisis multivariado de datos en R. 
- Simposio de Estadistica, Cartagena Colombia. \url{http://www.docentes.unal.edu.co/cepardot/docs/SimposiosEstadistica/PardoOrtiz04.pdf}  
+ Simposio de Estadistica, Cartagena Colombia.   
  }
  \keyword{datasets}
 

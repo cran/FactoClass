@@ -1,4 +1,3 @@
-\encoding{latin1} 
 \name{Vietnam}
  \alias{Vietnam}
  \title{Student opinions about the Vietnam War}
@@ -23,12 +22,8 @@ Chapel Hill (North Carolina) conducted a survey of student opinions about the
          from 1 to 5 and sexes are male (M) and female (F)) and 4 columns A, B, C and D. 
  }
 
- \source{Fine, J. (1996), 'Iniciación a los análisis de datos multidimensionales a partir de ejemplos',
+ \source{Fine, J. (1996), 'Iniciacion a los analisis de datos multidimensionales a partir de ejemplos',
              Notes of course, Montevideo
  }
-
- \references{Julian Faraway (2007). faraway: Functions and datasets for books by Julian Faraway,
-        R package version 1.0.2, \url{http://www.maths.bath.ac.uk/} 
-
-            }
+ 
  \keyword{datasets}

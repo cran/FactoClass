@@ -1,7 +1,7 @@
 #------------------------------------------#
 # chisq,test para varias tablas para carac #
 # una variable cualitativa                 #
-# Campo Elías Pardo  Abril 11 2017         #
+# Campo Elias Pardo  Abril 11 2017         #
 #                                          #
 # -----------------------------------------#
 chisq.carac <- function(df,cl,thr=2,decr=TRUE){
