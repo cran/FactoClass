@@ -1,5 +1,5 @@
 ###########################################################################################
-##  Funcion de impresión elementos tipo 'FactoClass'                                     ##
+##  Funcion de impresion elementos tipo 'FactoClass'                                     ##
 ##                                                                                       ##
 ## Elaborado por: Pedro Cesar del Campo Neira                                            ##
 ## Universidad Nacional de Colombia                                                      ##

@@ -1,12 +1,12 @@
-ecdcbf3185a252c7445bff6c25b710bf *DESCRIPTION
+00f6fe7134a718e5c1e69243599a62bb *DESCRIPTION
 1bd0c030bd2abb017065b7cc32c69fdc *NAMESPACE
 0043e67141ba1a2fe05747b59d3acfea *R/Fac.Num.R
 46f228561018269fb08b6235681a0b51 *R/FactoClass.R
-c6473a8070afc554e2c026dbf65bc637 *R/FactoClass.tex.R
-48eb23a65495b833a8a66e7e1a040f8b *R/addgrids3d.R
+2543964751c03167599bcd491bea49a6 *R/FactoClass.tex.R
+115f1aace434a3b139fc0ede70385807 *R/addgrids3d.R
 73e1dbbbd319950680dfa18dcf5914d2 *R/centroids.R
 ce4d2a6c4e28075d49df641a84bf5eb4 *R/chisqcarac.R
-a48ed5e89b6ae7aa3d693cdcf88233ef *R/cluster.carac.R
+111b7aba3531ac8a480fe78e54c94950 *R/cluster.carac.R
 e16e92c72bc2ecc88faef30b1cd3cb68 *R/dudi.tex.R
 4918e8e5be4b90e17c454cbc0cc747c1 *R/kmeansW.R
 afa572234d4c326b31a181783e903b6a *R/list.to.data.R
@@ -16,10 +16,10 @@ b1fa7d6c27a4688edaaca7340b885bb8 *R/plotFactoClass.R
 95950e30cf096a0462396e032a402002 *R/plotct.R
 ec7dee6eb656e7ba4e4247e09712575e *R/plotfp.R
 ca1ef2683612ea7f56f36586fd8cf303 *R/plotpairs.R
-da6eb1fc8729e48f689ceef93529ad09 *R/print.FactoClass.R
+25faaa48c18ed07c887b57cc6c3886f0 *R/print.FactoClass.R
 bb2ecf01c90d3695806a96d432754235 *R/stableclus.R
 711011fa898700fa07367aa602662576 *R/supqual.R
-d82d2a1872d7686e5ee82918f6e46b5a *R/ward.cluster.R
+4b04570b0d71d6b60af7edf84874ac1c *R/ward.cluster.R
 e3897e40ae9f72d2a1dc02a4c61c2583 *data/Bogota.rda
 12e4f6f5238ba97c7eafe564b6bd5381 *data/ColorAdjective.rda
 ff4c9b5cfade87555ec883cb9b128c92 *data/DogBreeds.rda
@@ -28,6 +28,7 @@ ff4c9b5cfade87555ec883cb9b128c92 *data/DogBreeds.rda
 816356fd8e9189a08a241c9228cbdd2e *data/admi.rda
 ead16c7766487485c3a31c031ebcfd6a *data/cafe.rda
 1fb9e53cc854bd5417adf7eef1daa64f *data/icfes08.rda
+da4b971295c6d0406b6762e52afd58f9 *inst/CITATION
 20db45f3da5dc6d982021b0bee9448a7 *man/Bogota.Rd
 481d371c0ff650e1c0fdfe6886b31b4c *man/ColorAdjective.Rd
 3026282a58ed8830b065aa378169b97a *man/DogBreeds.Rd
@@ -36,7 +37,7 @@ ae808ea4360b73ef3e1c8460e250f798 *man/Fac.Num.Rd
 200e21897fdfc89516a6c2177ac95c2e *man/FactoClass.tex.Rd
 d6fa06137867101b642d0ef9aadcbfb6 *man/Vietnam.Rd
 d89cc33558d55e8a5b39fc71a6367587 *man/Whisky.Rd
-358a06c388ab195951a391856f462580 *man/addgrids3d.Rd
+78d7e306684d793ecda7338d9f7a7af1 *man/addgrids3d.Rd
 e367eefc1f3d5f3fa012183fc4ab2b43 *man/admi.Rd
 d663c3df67648ec9b9e4e347028c8db3 *man/cafe.Rd
 15890a9bb15e760b2a124dc69ab08bad *man/centroids.Rd

@@ -56,7 +56,8 @@ cluster.carac<-function(tabla,class,tipo.v="d",v.lim=2,dn=3,dm=3,neg=TRUE){
                 Global=round(Global,1), Weight = nj)                                                    
       rownames(SALIDA) <- rownames(data.frame(nj))                              
       SALIDA <- subset(SALIDA, abs(V.test) >= v.lim) 
-      if (neg==FALSE) subset(SALIDA, V.test >= v.lim)
+      if (neg==FALSE) SALIDA <- subset(SALIDA,  SALIDA$Test.Value >= v.lim)                                     
+      
       SALIDA <- SALIDA[order(SALIDA$Test.Value, decreasing = TRUE),]  
       return(SALIDA)
     } # termina funcion salida

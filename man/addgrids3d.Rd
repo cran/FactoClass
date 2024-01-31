@@ -2,7 +2,7 @@
 % Please edit documentation in R/addgrids3d.R
 \name{addgrids3d}
 \alias{addgrids3d}
-\title{Add grids to a scatterplot3d}
+\title{Add grids to a scatterplot3d (modified)}
 \usage{
 addgrids3d(x, y = NULL, z = NULL, grid = TRUE, col.grid = "grey",
   lty.grid = par("lty"), lab = par("lab"), lab.z = mean(lab[1:2]),
@@ -27,8 +27,9 @@ The values of x and y give the (approximate) number of tickmarks on the x and y 
 \item{scale.y}{of y axis related to x- and z axis}
 
 \item{angle}{angle between x and y axis}
-
-\item{xlim,ylim,zlim}{ the x, y and z limits (min, max) of the plot.}
+\item{xlim}{the x limits (min, max) of the plot}
+\item{ylim}{the y limits (min, max) of the plot}
+\item{zlim}{the z limits (min, max) of the plot.}
 }
 \description{
 The goal of this function is to add grids on an existing
@@ -39,17 +40,15 @@ Users who want to extend an existing scatterplot3d graphic with the
  function addgrids3d, should consider to set the arguments scale.y, angle, ...,
  to the value used in scatterplot3d.
 }
-
+\examples{
+library(scatterplot3d)
+data(iris)
+scatterplot3d(iris[, 1:3], pch = 16, grid=TRUE, box=FALSE)
+addgrids3d(iris[, 1:3], grid = c("xy", "xz", "yz"))
+}
+\references{
+http://www.sthda.com
+}
 \author{
 Alboukadel Kassambara \email{alboukadel.kassambara@gmail.com}
-}
-\examples{
-library(FactoClass)
-data(cafe)
-Y <- cafe[1:10 ,1:3]
-Y3D <- scatterplot3d (Y, main ="Y",type="h",color ="darkblue",box=FALSE) 
-Y3D$points3d(Y,pch=1)
-addgrids3d(Y, grid = c("xy", "xz", "yz"))
-cord2d <-Y3D$xyz.convert(Y)
-text(cord2d,labels = rownames(Y),cex = 0.8,col = "blue",pos = 4) 
 }

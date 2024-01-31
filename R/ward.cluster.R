@@ -5,16 +5,16 @@
 ### CLASIFICACION JERARQUICA METODO DE WARD                                                                      ###
 ###                                                                                                              ###
 ### ## Elaborado por: Pedro Cesar del Campo Neira                                                                ###
-###    Revisado por: Campo Elías Pardo                                                                           ###
+###    Revisado por: Campo Elias Pardo                                                                           ###
 ###    Universidad Nacional de Colombia                                                                          ###
 ###                                                                                                              ###
 ### ward.cluster( dista  := matriz de distancias euclidianas de los elementos                                    ###
-###               peso   := vector de pesos de los elementos (Asume pesos iguales)                               ###
-###               plots  := (TRUE O FALSE) muestra un dendograma e indices                                       ###
+###               peso   := vector de pesos de los elementos (asume pesos iguales)                               ###
+###               plots  := (TRUE O FALSE) muestra un dendrograma e indices                                       ###
 ###               h.clust:= '0' devuelve salida tipo 'hclust' y tabla de Indices                                 ###
 ###                         '1' devuelve salida tipo 'hclust'                                                    ###
 ###                         '2' devuelve tabla de Indices                                                        ###
-###               n.indi := número de índices a grficar en el histograma (default 25)                            ###                 ###      
+###               n.indi := numero de indices a graficar en el histograma (default 25)                            ###                 ###      
 ###             )                                                                                                ###
 ###                                                                                                              ###
 ####################################################################################################################
@@ -32,7 +32,7 @@ if(is.null(peso)==TRUE){ peso <- rep(1,n) } # Pesos iguales cuando (peso = NULL)
 peso=peso/sum(peso)                         # ponderacion de suma 1
 
 
-fw <-function(a,b){(a*b)/(a+b)}             # funcion ponderación pesos inicial de Ward
+fw <-function(a,b){(a*b)/(a+b)}             # funcion ponderacion pesos inicial de Ward
 
 distW <- distaM^2 * outer(peso,peso,"fw")   # Matriz inicial en metodo de Ward
 distW <- as.dist(distW)             # Matriz inicial en metodo de Ward tipo dist
@@ -64,7 +64,7 @@ if(plots==TRUE){                      #Grafico dendograma e histograma
   
   Nodo <- ( 1:(n-1) ) + n    # Nodo
   Prim <- HW$merge[,1]       # Primogenito
-  Benj <- HW$merge[,2]       # Benjamín
+  Benj <- HW$merge[,2]       # Benjamin
   
   
   SALIDA <- data.frame(Nodo,Prim,Benj)
@@ -73,7 +73,7 @@ if(plots==TRUE){                      #Grafico dendograma e histograma
   SALIDA[SALIDA[,2]<0,2] <- abs(SALIDA[SALIDA[,2]<0,2] )  # Arreglo  Primogenito
   
   SALIDA[SALIDA[,3]>0,3] <- SALIDA[SALIDA[,3]>0,3] + n
-  SALIDA[SALIDA[,3]<0,3] <- abs(SALIDA[SALIDA[,3]<0,3] )  # Arreglo  Benjamín
+  SALIDA[SALIDA[,3]<0,3] <- abs(SALIDA[SALIDA[,3]<0,3] )  # Arreglo  Benjamin
   
   SALIDA[,1] <- factor(SALIDA[,1])
   SALIDA[,2] <- factor(SALIDA[,2])                        # Arreglo a factores

@@ -1,0 +1,22 @@
+bibentry(bibtype = "Article",
+  title          = "{Combinaci\'on de m\'etodos factoriales y de an\'alisis de conglomerados en R: el paquete FactoClass}",
+  author         = c(person(given = "Campo El\\'ias", family = "Pardo"),
+                     person(given = "Pedro C\\'esar", family = "Del Campo")),
+  journal        = "Revista Colombiana de Estad\\'istica",
+  year           = "2007",
+  volume         = "30",
+  number         = "2",         
+  pages          = "231--245",
+
+  header         = "To cite FactoClass in publications use:"
+)
+
+bibentry(bibtype = "Book",
+  title          = "Estad\\'istica descriptiva multivariada",
+  author         = c(person(given = "Campo El\\'ias", family = "Pardo")),
+  year           = "2023",
+  publisher      = "Bogot\\'a. Universidad Nacional de Colombia. Facultad de Ciencias",
+  
+  header         = "or:"
+)
+

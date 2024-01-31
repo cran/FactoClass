@@ -123,8 +123,6 @@ FactoClass.tex <- function(FC,job="",append=TRUE, dir = getwd() , p.clust = FALS
 
 ###---------------------------------------------------------------------------------
 
-
-
 file         <- paste(dir,"/",job,".tex",sep="")
 
 afg          <- FC
